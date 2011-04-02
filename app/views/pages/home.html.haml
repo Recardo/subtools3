@@ -1,2 +1,6 @@
 %h1 Pages#home
 %p Find me in app/views/pages/home.html.haml
+- if user_signed_in?
+%p
+  = link_to 'Auftraggeber anlegen',''
+  = link_to 'Auftragnehmer anlegen',''

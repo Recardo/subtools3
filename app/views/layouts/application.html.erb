@@ -14,6 +14,11 @@
             <%= link_to "Registrieren", new_user_registration_path %> oder <%= link_to "Anmelden", new_user_session_path %>
             <% end %>
         </div>
+		<% if current_user.adminable? %>
+			<div id="admin_nav">
+				Admin Menu:	
+			</div>
+		<% end %>
         <p class="notice">
             <%= notice %>
         </p>
