@@ -15,6 +15,7 @@ gem 'haml-rails'
 gem 'devise'
 gem 'simple_form'
 gem 'i18n'
+gem 'heroku'
 
 group :development do
 	gem 'hpricot'
