@@ -1,9 +1,13 @@
 Subtools3::Application.routes.draw do
+  resources :principals
+
   devise_for :users
 
   get "pages/home"
 
   get "pages/about"
+  
+  #get "principals/n"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -1,0 +1,9 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @principal.name
+
+= link_to 'Edit', edit_principal_path(@principal)
+\|
+= link_to 'Back', principals_path

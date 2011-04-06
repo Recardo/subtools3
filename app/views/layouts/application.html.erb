@@ -11,14 +11,18 @@
             <% if user_signed_in? %>
             Angemeldet als <%= current_user.email %>. <%= link_to "Abmelden", destroy_user_session_path %>
             <% else %>
-            <%= link_to "Registrieren", new_user_registration_path %> oder <%= link_to "Anmelden", new_user_session_path %>
+            <%= link_to "Registrieren", new_user_registration_path %>oder <%= link_to "Anmelden", new_user_session_path %>
             <% end %>
         </div>
-		<% if current_user.adminable? %>
-			<div id="admin_nav">
-				Admin Menu:	
-			</div>
-		<% end %>
+        <% if user_signed_in? && current_user.adminable? %>
+		<%# if User.current.$adminable? %>
+        <div id="admin_nav">
+            Admin Menu: 
+        </div>
+        <% end %>
+        <div>
+            Menu:
+        </div>
         <p class="notice">
             <%= notice %>
         </p>
