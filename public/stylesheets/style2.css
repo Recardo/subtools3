@@ -18,8 +18,12 @@ p {
  color: black;
  background: #FFFFFF;
  
- width: 840px;
+ width: 839px;
  display: inline;
+ border-left-width: 1px;
+ border-left-color: black;
+ border-left-style: solid;
+ 
 }
 
 #header {
@@ -51,6 +55,12 @@ p {
  background: #FFFFFF;
  width: 140px;
  float: left;
+}
+
+#leftcolumn ul 
+{
+	list-style-type: none;
+	margin-left: -30px;
 }
 
 .round {
