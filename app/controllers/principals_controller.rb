@@ -27,7 +27,8 @@ class PrincipalsController < ApplicationController
   # GET /principals/new.xml
   def new
     @principal = Principal.new
-
+    @principal.user = User.current
+    @principal.save
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @principal }
