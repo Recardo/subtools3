@@ -3,7 +3,7 @@
     <head>
         <title>Subtools3</title>
         <%= stylesheet_link_tag :all %>
-        <%= javascript_include_tag :defaults %>
+        <%= javascript_include_tag :all %>
         <%= csrf_meta_tag %>
     </head>
     <body>
@@ -20,8 +20,26 @@
                 </div>
             </div>
             <% if user_signed_in? && current_user.adminable? %>
-            <div id="navigation">
-                Admin Menu:  <%= link_to 'Auftraggeber', principals_path %>
+            <div id="navigation"> 
+				<ul id="jsddm">
+					<li><a href="#">Auftraggeber</a>
+						<ul>
+							<li><%= link_to 'Übersicht', principals_path %>
+							<li><a href="#">Aufträge</a></li>
+						</ul>
+					</li>
+					<li><a href="#">Auftragnehmer</a>
+						<ul>
+							<li><a href="#">Übersicht</a></li>
+						</ul>
+					</li>
+					<li><a href="#">Kalender</a></li>
+					<li><a href="#">CMS</a>
+						<ul><li><a href="#">News</a></li></ul>
+					</li>
+					<li><a href="#">Hilfe</a></li>
+				</ul>
+
             </div>
             <% end %>
 			<%if user_signed_in? %>

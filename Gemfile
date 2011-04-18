@@ -16,6 +16,7 @@ gem 'devise'
 gem 'simple_form'
 gem 'i18n'
 gem 'heroku'
+gem 'jquery-rails', '>= 0.2.6'
 
 group :development do
 	gem 'hpricot'

@@ -54,6 +54,9 @@ GEM
       rest-client (>= 1.4.0, < 1.7.0)
     hpricot (0.8.3)
     i18n (0.5.0)
+    jquery-rails (0.2.7)
+      rails (~> 3.0)
+      thor (~> 0.14.4)
     launchy (0.3.7)
       configuration (>= 0.0.5)
       rake (>= 0.8.1)
@@ -125,6 +128,7 @@ DEPENDENCIES
   heroku
   hpricot
   i18n
+  jquery-rails (>= 0.2.6)
   rails (= 3.0.5)
   rails3-generators
   rspec
