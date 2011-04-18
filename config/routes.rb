@@ -2,6 +2,7 @@ Subtools3::Application.routes.draw do
   resources :principals
 
   devise_for :users
+  resources :users, :has_one => :principal
 
   get "pages/home"
 

@@ -1,4 +1,4 @@
-%h1 Listing principals
+%h1 Auftraggeber
 
 %table
   %tr
@@ -10,10 +10,10 @@
   - @principals.each do |principal|
     %tr
       %td= principal.name
-      %td= link_to 'Show', principal
-      %td= link_to 'Edit', edit_principal_path(principal)
-      %td= link_to 'Destroy', principal, :confirm => 'Are you sure?', :method => :delete
+      %td= link_to 'Anzeigen', principal
+      %td= link_to 'Bearbeiten', edit_principal_path(principal)
+      %td= link_to 'Löschen', principal, :confirm => 'Wirklich löschen?', :method => :delete
 
 %br
 
-= link_to 'New Principal', new_principal_path
+= link_to 'Neuer Auftraggeber', new_principal_path

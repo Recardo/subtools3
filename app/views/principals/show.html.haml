@@ -3,6 +3,9 @@
 %p
   %b Name:
   = @principal.name
+  %p
+    %b Email:
+    = @principal.user.email
 
 = link_to 'Edit', edit_principal_path(@principal)
 \|

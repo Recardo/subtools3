@@ -27,8 +27,7 @@ class PrincipalsController < ApplicationController
   # GET /principals/new.xml
   def new
     @principal = Principal.new
-    @principal.user = User.current
-    @principal.save
+    @principal.user = User.new
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @principal }
@@ -43,8 +42,9 @@ class PrincipalsController < ApplicationController
   # POST /principals
   # POST /principals.xml
   def create
+    #user = User.create(params[:principal][:user])
     @principal = Principal.new(params[:principal])
-
+    #@principal.user = current;
     respond_to do |format|
       if @principal.save
         format.html { redirect_to(@principal, :notice => 'Principal was successfully created.') }

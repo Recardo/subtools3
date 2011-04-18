@@ -7,27 +7,43 @@
         <%= csrf_meta_tag %>
     </head>
     <body>
-        <div id="user_nav">
-            <% if user_signed_in? %>
-            Angemeldet als <%= current_user.email %>. <%= link_to "Abmelden", destroy_user_session_path %>
-            <% else %>
-            <%= link_to "Registrieren", new_user_registration_path %>oder <%= link_to "Anmelden", new_user_session_path %>
+        <div id="wrapper">
+            <div id="header" class="roundtop">
+                <h1><%= link_to 'PEBOA', root_path%></h1>
+                <div id="user_nav">
+                    <% if user_signed_in? %>
+                    Angemeldet als <%= current_user.email %>. <%= link_to "Abmelden", destroy_user_session_path %>
+                    <% else %>
+                    <%= link_to "Registrieren", new_user_registration_path %>oder <%= link_to "Anmelden", new_user_session_path %>
+                    <% end %>
+                </div>
+            </div>
+            <% if user_signed_in? && current_user.adminable? %>
+            <div id="navigation">
+                Admin Menu:  <%= link_to 'Auftraggeber', principals_path %>
+            </div>
             <% end %>
-        </div>
-        <% if user_signed_in? && current_user.adminable? %>
-        <div id="admin_nav">
-            Admin Menu: 
-        </div>
-        <% end %>
-        <div>
-            Menu:
-        </div>
-        <p class="notice">
-            <%= notice %>
-        </p>
-        <p class="alert">
-            <%= alert %>
-        </p>
-        <%= yield %>
-    </body>
-</html>
+            <div id="leftcolumn">
+                <p>
+                    Left Column
+                </p>
+            </div>
+            <div id="content">
+                <p class="notice">
+                    <%= notice %>
+                </p>
+                <p class="alert">
+                    <%= alert %>
+                </p>
+                <%= yield %>
+            </div>
+            <div id="footer" class="roundbottom">
+                <center>
+                    <p>
+                        Impressum | Kontakt | AGBs
+                    </p>
+                    <center>
+                    </div>
+                </div>
+                </body>
+            </html>
