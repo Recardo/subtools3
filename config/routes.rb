@@ -8,7 +8,11 @@ Subtools3::Application.routes.draw do
 
   get "pages/about"
   
-  #get "principals/n"
+  match "/principals" => "principals#show"
+  match "/principals/:id" => "principals#show"
+  match "/principals/edit/:id" => "principals#edit"
+  #match "principals/edit/:id" => "principals#edit"
+  #match 'principals/:id' => 'principals#show'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

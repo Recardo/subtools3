@@ -18,7 +18,7 @@ p {
  color: black;
  background: #FFFFFF;
  
- width: 860px;
+ width: 840px;
  display: inline;
 }
 
@@ -49,8 +49,7 @@ p {
 #leftcolumn { 
  color: black;
  background: #FFFFFF;
- 
- width: 120px;
+ width: 140px;
  float: left;
 }
 

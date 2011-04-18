@@ -14,7 +14,8 @@
                     <% if user_signed_in? %>
                     Angemeldet als <%= current_user.email %>. <%= link_to "Abmelden", destroy_user_session_path %>
                     <% else %>
-                    <%= link_to "Registrieren", new_user_registration_path %>oder <%= link_to "Anmelden", new_user_session_path %>
+                    <!--<%= link_to "Registrieren", new_user_registration_path %>oder--> 
+					<%= link_to "Anmelden", new_user_session_path %>
                     <% end %>
                 </div>
             </div>
@@ -23,11 +24,15 @@
                 Admin Menu:  <%= link_to 'Auftraggeber', principals_path %>
             </div>
             <% end %>
-            <div id="leftcolumn">
-                <p>
-                    Left Column
-                </p>
-            </div>
+			<%if user_signed_in? %>
+	            <div id="leftcolumn">
+	                <p>	                	
+						test: <%=current_user.principal.id%><br>						
+						<%= link_to "Profil", :controller => "principals", :action => "show", :id => current_user.principal.id%>
+						<%= link_to "| bearbeiten", :controller => "principals", :action => "edit", :id => current_user.principal.id%>
+	                </p>
+	            </div>
+			<%end%>
             <div id="content">
                 <p class="notice">
                     <%= notice %>
