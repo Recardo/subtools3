@@ -4,57 +4,83 @@
         <title>Subtools3</title>
         <%= stylesheet_link_tag :all %>
         <%#= javascript_include_tag :all %>
-		<%= javascript_include_tag "application.js", "jquery.js", "rails.js"%>
-		<%= javascript_include_tag "adminmenu.js"%>		
+        <%= javascript_include_tag "application.js", "jquery.js", "rails.js" %>
+        <%= javascript_include_tag "adminmenu.js" %>
         <%= csrf_meta_tag %>
     </head>
     <body>
         <div id="wrapper">
             <div id="header" class="roundtop">
-                <h1><%= link_to 'PEBOA', root_path%></h1>
+                <h1><%= link_to 'Subtools', root_path %></h1>
                 <div id="user_nav">
                     <% if user_signed_in? %>
                     Angemeldet als <%= current_user.email %>. <%= link_to "Abmelden", destroy_user_session_path %>
                     <% else %>
-                    <!--<%= link_to "Registrieren", new_user_registration_path %>oder--> 
-					<%= link_to "Anmelden", new_user_session_path %>
+                    <!--<%= link_to "Registrieren", new_user_registration_path %>oder--><%= link_to "Anmelden", new_user_session_path %>
                     <% end %>
                 </div>
             </div>
             <% if user_signed_in? && current_user.adminable? %>
-            <div id="navigation"> 
-				<ul id="jsddm">
-					<li><a href="#">Auftraggeber</a>
-						<ul>
-							<li><%= link_to 'Übersicht', principals_path %></li>
-							<li><a href="#">Aufträge</a></li>
-						</ul>
-					</li>
-					<li><a href="#">Auftragnehmer</a>
-						<ul>
-							<li><a href="#">Übersicht</a></li>
-						</ul>
-					</li>
-					<li><a href="#">Kalender</a></li>
-					<li><a href="#">CMS</a>
-						<ul><li><a href="#">News</a></li></ul>
-					</li>
-					<li><a href="#">Hilfe</a></li>
-				</ul>
-
+            <div id="navigation">
+                <ul id="jsddm">
+                    <li>
+                        <a href="#">Auftraggeber</a>
+                        <ul>
+                            <li>
+                                <%= link_to 'Übersicht', principals_path %>
+                            </li>
+                            <li>
+                                <a href="#">Aufträge</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">Auftragnehmer</a>
+                        <ul>
+                            <li>
+                                <a href="#">Übersicht</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">Kalender</a>
+                    </li>
+                    <li>
+                        <a href="#">CMS</a>
+                        <ul>
+                            <li>
+                                <a href="#">News</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">Hilfe</a>
+                    </li>
+                </ul>
             </div>
             <% end %>
-			<%if user_signed_in? %>
-	            <div id="leftcolumn">
-	                <ul>	                	
-						<li>test: <%=current_user.principal.id%><br></li>						
-						<li><%= link_to "Profil", :controller => "principals", :action => "show", :id => current_user.principal.id%>|<%= link_to "bearbeiten", :controller => "principals", :action => "edit", :id => current_user.principal.id%></li>
-						<li><%= link_to "Nachrichten","#"%></li>
-						<li><%= link_to "Aufträge","#"%></li>
-						<li><%= link_to "Kalender","#"%></li>
-	                </ul>
-	            </div>
-			<%end%>
+            <%if user_signed_in? %>
+            <div id="leftcolumn">
+                <ul>
+                    <li>
+                        test: <%=current_user.principal.id %>
+                        <br>
+                    </li>
+                    <li>
+                        <%= link_to "Profil", :controller => "principals", :action => "show", :id => current_user.principal.id %>|<%= link_to "bearbeiten", :controller => "principals", :action => "edit", :id => current_user.principal.id %>
+                    </li>
+                    <li>
+                        <%= link_to "Nachrichten","#" %>
+                    </li>
+                    <li>
+                        <%= link_to "Aufträge","#" %>
+                    </li>
+                    <li>
+                        <%= link_to "Kalender","#" %>
+                    </li>
+                </ul>
+            </div>
+            <%end %>
             <div id="content">
                 <p class="notice">
                     <%= notice %>
@@ -69,8 +95,8 @@
                     <p>
                         Impressum | Kontakt | AGBs
                     </p>
-                    <center>
-                    </div>
-                </div>
-                </body>
-            </html>
+                </center>
+            </div>
+        </div>
+    </body>
+</html>
