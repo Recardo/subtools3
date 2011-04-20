@@ -1,11 +1,12 @@
-Subtools3::Application.routes.draw do
+Subtools3::Application.routes.draw do  
   resources :principals
+  resources :agents
 
   devise_for :users
   resources :users, :has_one => :principal
+  resources :users, :has_one => :agent
 
   get "pages/home"
-
   get "pages/about"
   
   match "/principals" => "principals#show"
@@ -13,6 +14,10 @@ Subtools3::Application.routes.draw do
   match "/principals/edit/:id" => "principals#edit"
   #match "principals/edit/:id" => "principals#edit"
   #match 'principals/:id' => 'principals#show'
+
+  match "/agents" => "agents#show"
+  match "/agents/:id" => "agents#show"
+  match "/agents/edit/:id" => "agents#edit"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

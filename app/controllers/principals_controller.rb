@@ -45,7 +45,7 @@ class PrincipalsController < ApplicationController
     @principal = Principal.new(params[:principal])
     respond_to do |format|
       if @principal.save
-        format.html { redirect_to(@principal, :notice => 'Principal was successfully created.') }
+        format.html { redirect_to(@principal, :notice => 'Ihr Auftraggeberprofil wurde erfolgreich erstellt.') }
         format.xml  { render :xml => @principal, :status => :created, :location => @principal }
       else
         format.html { render :action => "new" }

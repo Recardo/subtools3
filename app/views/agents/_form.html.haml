@@ -1,9 +1,9 @@
-= form_for @principal do |f|
-  -if @principal.errors.any?
+= form_for @agent do |f|
+  -if @agent.errors.any?
     #error_explanation
-      %h2= "#{pluralize(@principal.errors.count, "error")} prohibited this principal from being saved:"
+      %h2= "#{pluralize(@agent.errors.count, "error")} prohibited this agent from being saved:"
       %ul
-        - @principal.errors.full_messages.each do |msg|
+        - @agent.errors.full_messages.each do |msg|
           %li= msg
 
   .field

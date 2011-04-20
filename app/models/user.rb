@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   has_one :principal
+  has_one :agent
   
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable, :lockable and :timeoutable
