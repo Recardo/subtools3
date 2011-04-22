@@ -10,3 +10,11 @@
 	background-color: silver;
 	color: black;
 	}
+.table_standard {
+	width: 100%;
+	border-spacing: 0px;
+	text-align: left;
+}
+.table_standard td {
+	border: 1px solid silver;
+}

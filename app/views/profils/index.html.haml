@@ -1,9 +1,10 @@
-%h1 Listing profils
+%h3 Ihre Profile
+%p Sie können mehrer Profile anlegen. Pro Profil kann eine Tätigkeitskategorie ausgewählt werden. 
 
-%table
+%table{:class => 'table_standard'}
   %tr
+    %th Aktiv
     %th Name
-    %th Active
     %th
     %th
     %th
@@ -11,13 +12,12 @@
 
   - @profils.each do |profil|
     %tr
-      %td= profil.name
-      %td= profil.active
-      %td= button_to 'Anzeigen', profil, :class => 'button'
-      %td= button_to 'Bearbeiten', edit_profil_path(profil)
-      %td= button_to 'Destroy', profil, :confirm => 'Are you sure?', :method => :delete, :remote => true
-      %td= button_to 'Löschen', profil, :confirm => 'Sind sie sicher?', :method => :delete, :remote => true, :class => 'button'
+      %td{:width => '50', :align => 'center'}= check_box :profil, :active, :checked => profil.active, :disabled => true
+      %td= profil.name 
+      %td{:width => '90px'}= button_to 'Anzeigen', profil, :class => 'button'
+      %td{:width => '90px'}= button_to 'Bearbeiten', edit_profil_path(profil), :class => 'button'
+      %td{:width => '90px'}= button_to 'Löschen', profil, :confirm => 'Sind sie sicher?', :method => :delete, :remote => true, :class => 'button'
 
 %br
 
-= link_to 'New Profil', new_profil_path
+= link_to 'Neues Profil anlegen', new_profil_path

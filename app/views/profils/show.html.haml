@@ -3,14 +3,9 @@
 %p
   %b Name:
   = @profil.name
-%p
-  %b Active:
-  = @profil.active
+  %br
+  %b Aktiv:
+  = check_box :profil, :active, :checked => @profil.active, :disabled => true
 
-= link_to 'Edit', edit_profil_path(@profil)
-\|
-= link_to 'Back', profils_path
-\|
-= link_to 'Delete', @profil, :method => :delete, :remote => true
-\|
-= button_to 'Delete', @profil, :method => :delete, :remote => true, :class => 'button'
+= button_to 'Bearbeiten', edit_profil_path(@profil), :class => 'button'
+= button_to 'Löschen', @profil, :method => :delete, :remote => true, :class => 'button'
