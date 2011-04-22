@@ -1,6 +1,8 @@
 Subtools3::Application.routes.draw do  
+  resources :profils
+
   resources :principals
-  resources :agents
+  resources :agents, :has_many => :profils
 
   devise_for :users
   resources :users, :has_one => :principal
@@ -12,12 +14,17 @@ Subtools3::Application.routes.draw do
   match "/principals" => "principals#show"
   match "/principals/:id" => "principals#show"
   match "/principals/edit/:id" => "principals#edit"
+  match "/principals/edit/:id" => "principals#edit"
   #match "principals/edit/:id" => "principals#edit"
   #match 'principals/:id' => 'principals#show'
 
   match "/agents" => "agents#show"
   match "/agents/:id" => "agents#show"
   match "/agents/edit/:id" => "agents#edit"
+
+  match "/profils" => "profils#show"
+  match "/profils/:id" => "profils#show"
+  match "/profils/edit/:id" => "profils#edit"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

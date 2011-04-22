@@ -1,0 +1,23 @@
+%h1 Listing profils
+
+%table
+  %tr
+    %th Name
+    %th Active
+    %th
+    %th
+    %th
+    %th
+
+  - @profils.each do |profil|
+    %tr
+      %td= profil.name
+      %td= profil.active
+      %td= button_to 'Anzeigen', profil, :class => 'button'
+      %td= button_to 'Bearbeiten', edit_profil_path(profil)
+      %td= button_to 'Destroy', profil, :confirm => 'Are you sure?', :method => :delete, :remote => true
+      %td= button_to 'Löschen', profil, :confirm => 'Sind sie sicher?', :method => :delete, :remote => true, :class => 'button'
+
+%br
+
+= link_to 'New Profil', new_profil_path
