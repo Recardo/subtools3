@@ -1,0 +1,44 @@
+		<% if user_signed_in? && current_user.adminable? %>
+            <div id="navigation">
+                <ul id="jsddm">
+                    <li>
+                        <a href="#">Auftraggeber</a>
+                        <ul>
+                            <li>
+                                <%= link_to 'Übersicht', principals_path %>
+                            </li>
+                            <li>
+                                <a href="#">Aufträge</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">Auftragnehmer</a>
+                        <ul>
+                            <li>
+                                <%= link_to 'Übersicht', agents_path %>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                    	<a href="#">Einstellungen</a>
+                    	<ul>
+							<li>
+		                        <%= link_to 'Kategorien', categories_path %>
+		                    </li>
+						</ul>
+					</li>
+                    <li>
+                        <a href="#">CMS</a>
+                        <ul>
+                            <li>
+                                <a href="#">News</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">Hilfe</a>
+                    </li>
+                </ul>
+            </div>
+            <% end %>

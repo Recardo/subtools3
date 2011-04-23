@@ -1,6 +1,6 @@
 %h1 Listing agents
 
-%table
+%table{:class => 'table_standard'}
   %tr
     %th Name
     %th
@@ -10,10 +10,10 @@
   - @agents.each do |agent|
     %tr
       %td= agent.name
-      %td= link_to 'Show', agent
-      %td= link_to 'Edit', edit_agent_path(agent)
-      %td= link_to 'Destroy', agent, :confirm => 'Are you sure?', :method => :delete
+      %td{:width => '90px'}= button_to 'Show', agent, :class => 'button'
+      %td{:width => '90px'}= button_to 'Edit', edit_agent_path(agent), :class => 'button'
+      %td{:width => '90px'}= button_to 'Destroy', agent, :confirm => 'Are you sure?', :method => :delete, :class => 'button'
 
 %br
 
-= link_to 'New Agent', new_agent_path
+= button_to 'New Agent', new_agent_path

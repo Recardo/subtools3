@@ -6,6 +6,9 @@
   %br
   %b Aktiv:
   = check_box :profil, :active, :checked => @profil.active, :disabled => true
+  %br
+  %b Kategorie:
+  = @profil.category.name
 
 = button_to 'Bearbeiten', edit_profil_path(@profil), :class => 'button'
-= button_to 'Löschen', @profil, :method => :delete, :remote => true, :class => 'button'
+= button_to 'Löschen', @profil, :method => :delete, :class => 'button'
