@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110423134100) do
+ActiveRecord::Schema.define(:version => 20110424122037) do
 
   create_table "agents", :force => true do |t|
     t.string   "name"
@@ -45,6 +45,7 @@ ActiveRecord::Schema.define(:version => 20110423134100) do
     t.integer  "category_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "principal_id"
   end
 
   create_table "users", :force => true do |t|

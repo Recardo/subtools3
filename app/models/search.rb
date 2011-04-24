@@ -1,5 +1,6 @@
 class Search < ActiveRecord::Base
   #attr_accessible :category_id
+  belongs_to :principal
   
   def profils
     @profils ||= find_profils
