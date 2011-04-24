@@ -21,6 +21,7 @@ gem 'jquery-rails', '>= 0.2.6'
 group :development do
 	gem 'hpricot'
 	gem 'ruby_parser'
+	gem 'nifty-generators'
 end
 
 group :test do
@@ -52,3 +53,4 @@ end
 # group :development, :test do
 #   gem 'webrat'
 # end
+# gem "mocha", :group => :test

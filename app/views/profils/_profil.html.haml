@@ -1,0 +1,9 @@
+%table{:class => 'table_standard'}
+  %tr
+    %th Name
+    %th Kategorie
+
+  - @search.profils.each do |profil|
+    %tr
+      %td= profil.name
+      %td= profil.category.name 

@@ -7,14 +7,8 @@
                             <li>
                                 <%= link_to 'Übersicht', principals_path %>
                             </li>
-							<li>
-                                <a href="#">#Suchen</a>
-                            </li>
                             <li>
-                                <a href="#">#Aufträge</a>
-                            </li>
-							<li>
-                                <a href="#">#Rechnungen</a>
+                                <a href="#">Aufträge</a>
                             </li>
                         </ul>
                     </li>
@@ -23,9 +17,6 @@
                         <ul>
                             <li>
                                 <%= link_to 'Übersicht', agents_path %>
-                            </li>
-							<li>
-                                <a href="#">#Gutschriften</a>
                             </li>
                         </ul>
                     </li>
@@ -38,15 +29,15 @@
 						</ul>
 					</li>
                     <li>
-                        <a href="#">#CMS</a>
+                        <a href="#">CMS</a>
                         <ul>
                             <li>
-                                <a href="#">#News</a>
+                                <a href="#">News</a>
                             </li>
                         </ul>
                     </li>
                     <li>
-                        <a href="#">#Hilfe</a>
+                        <a href="#">Hilfe</a>
                     </li>
                 </ul>
             </div>

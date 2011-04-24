@@ -5,7 +5,7 @@
                         <%= link_to "Daten", :controller => "principals", :action => "show", :id => current_user.principal.id %>|<%= link_to "bearbeiten", :controller => "principals", :action => "edit", :id => current_user.principal.id %>
                     </li>
 					<li>
-                        <%= link_to "Suche",new_search_path %>
+                        <%= link_to "Suche",search_path %>
                     </li>
                     <li>
                         <%= link_to "#Nachrichten","#" %>

@@ -1,4 +1,6 @@
 Subtools3::Application.routes.draw do  
+  resources :searches
+
   resources :categories
 
   resources :profils
@@ -24,6 +26,9 @@ Subtools3::Application.routes.draw do
   match "/profils" => "profils#show"
   match "/profils/:id" => "profils#show"
   match "/profils/:id/edit" => "profils#edit"
+  
+  match "/search" => "searches#new"
+  match "/searches/:id" => "searches#show"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
