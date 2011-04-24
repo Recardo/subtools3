@@ -11,19 +11,20 @@
     <body>
         <div id="wrapper">
             <div id="header" class="roundtop">
-            	<br>
-                <%= link_to 'Subtools', root_path, :class => 'logo' %>
+                <h1><%= link_to 'Subtools', root_path %></h1>
                 <div id="user_nav">
                     <% if user_signed_in? %>
                     Angemeldet als <%= current_user.email %>. <%= link_to "Abmelden", destroy_user_session_path %>
                     <% else %>
-                    <!--<%= link_to "Registrieren", new_user_registration_path %>oder-->
-                    <%= link_to "Anmelden", new_user_session_path %>
+                    <!--<%= link_to "Registrieren", new_user_registration_path %>oder--><%= link_to "Anmelden", new_user_session_path %>
                     <% end %>
                 </div>
             </div>
-            <%= render :partial => "layouts/adminmenu" %>
-            <%= render :partial => "layouts/leftcolumn" %>
+            
+			<%= render :partial => "layouts/adminmenu" %>
+			
+			<%= render :partial => "layouts/leftcolumn" %>
+            
             <div id="content">
                 <p class="notice">
                     <%= notice %>
@@ -35,7 +36,9 @@
             </div>
             <div id="footer" class="roundbottom">
                 <center>
+                    <p>
                         Impressum | Kontakt | AGBs
+                    </p>
                 </center>
             </div>
         </div>

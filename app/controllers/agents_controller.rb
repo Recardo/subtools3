@@ -1,28 +1,29 @@
 class AgentsController < ApplicationController
-before_filter :set_current_user
+  before_filter :authenticate_user!
+  before_filter :set_current_user
   
   # GET /agents
   # GET /agents.xml
   def index
     @agents = Agent.all
-
+    
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @agents }
     end
   end
-
+  
   # GET /agents/1
   # GET /agents/1.xml
   def show
     @agent = Agent.find(params[:id])
-
+    
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @agent }
     end
   end
-
+  
   # GET /agents/new
   # GET /agents/new.xml
   def new
@@ -33,17 +34,17 @@ before_filter :set_current_user
       format.xml  { render :xml => @agent }
     end
   end
-
+  
   # GET /agents/1/edit
   def edit
     @agent = Agent.find(params[:id])
   end
-
+  
   # POST /agents
   # POST /agents.xml
   def create
     @agent = Agent.new(params[:agent])
-
+    
     respond_to do |format|
       if @agent.save
         format.html { redirect_to(@agent, :notice => 'Ihr Auftragnehmerprofil wurde erfolgreich erstellt.') }
@@ -54,12 +55,12 @@ before_filter :set_current_user
       end
     end
   end
-
+  
   # PUT /agents/1
   # PUT /agents/1.xml
   def update
     @agent = Agent.find(params[:id])
-
+    
     respond_to do |format|
       if @agent.update_attributes(params[:agent])
         format.html { redirect_to(@agent, :notice => 'Agent was successfully updated.') }
@@ -70,13 +71,13 @@ before_filter :set_current_user
       end
     end
   end
-
+  
   # DELETE /agents/1
   # DELETE /agents/1.xml
   def destroy
     @agent = Agent.find(params[:id])
     @agent.destroy
-
+    
     respond_to do |format|
       format.html { redirect_to(agents_url) }
       format.xml  { head :ok }

@@ -22,6 +22,7 @@ group :development do
 	gem 'hpricot'
 	gem 'ruby_parser'
 	gem 'nifty-generators'
+	gem 'rails-erd'
 end
 
 group :test do
