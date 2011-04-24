@@ -5,5 +5,5 @@ class Principal < ActiveRecord::Base
   
   validates_associated :searches
   validates_presence_of :name
-  validates_uniqueness_of :vatregno
+  #validates_uniqueness_of :vatregno
 end

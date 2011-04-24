@@ -5,5 +5,5 @@ class Agent < ActiveRecord::Base
   
   validates_presence_of :name
   validates_associated :profil
-  validates_uniqueness_of :vatregno
+  #validates_uniqueness_of :vatregno
 end

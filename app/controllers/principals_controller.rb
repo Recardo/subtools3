@@ -1,5 +1,5 @@
 class PrincipalsController < ApplicationController
-  before_filter :authenticate_user!, :except => :new
+  #before_filter :authenticate_user!, :except => :new
   before_filter :set_current_user
   
   # GET /principals
@@ -44,6 +44,7 @@ class PrincipalsController < ApplicationController
   # POST /principals.xml
   def create
     @principal = Principal.new(params[:principal])
+    
     respond_to do |format|
       if @principal.save
         format.html { redirect_to(@principal, :notice => 'Ihr Auftraggeberprofil wurde erfolgreich erstellt.') }
