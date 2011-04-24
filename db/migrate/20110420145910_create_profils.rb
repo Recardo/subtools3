@@ -1,7 +1,7 @@
 class CreateProfils < ActiveRecord::Migration
   def self.up
     create_table :profils do |t|
-      t.string :name, :null => false
+      t.string :name, :null => false, :limit => 32
       t.boolean :active, :default => true
       t.references :agent
       t.timestamps

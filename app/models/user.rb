@@ -11,6 +11,9 @@ class User < ActiveRecord::Base
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me
   
+  validates_uniqueness_of :email  
+  validates_associated :principal
+  validates_associated :agent
   
   def self.current
     Thread.current[:user]

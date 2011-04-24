@@ -13,28 +13,28 @@
 ActiveRecord::Schema.define(:version => 20110424122037) do
 
   create_table "agents", :force => true do |t|
-    t.string   "name",       :null => false
+    t.string   "name",       :limit => 32, :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
   end
 
   create_table "categories", :force => true do |t|
-    t.string   "name",       :null => false
+    t.string   "name",       :limit => 32, :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "principals", :force => true do |t|
-    t.string   "name",       :null => false
+    t.string   "name",       :limit => 32, :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
   end
 
   create_table "profils", :force => true do |t|
-    t.string   "name",                          :null => false
-    t.boolean  "active",      :default => true
+    t.string   "name",        :limit => 32,                   :null => false
+    t.boolean  "active",                    :default => true
     t.integer  "agent_id"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -51,6 +51,7 @@ ActiveRecord::Schema.define(:version => 20110424122037) do
   end
 
   create_table "users", :force => true do |t|
+    t.string   "vatregno",             :limit => 14
     t.string   "email",                               :default => "",    :null => false
     t.string   "encrypted_password",   :limit => 128, :default => "",    :null => false
     t.string   "password_salt",                       :default => "",    :null => false
