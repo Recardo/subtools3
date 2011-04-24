@@ -17,6 +17,10 @@ class Search < ActiveRecord::Base
     ["profils.category_id = ?", category_id] unless category_id.blank?
   end
   
+  def active_conditions
+    ["profils.active = ?", true]
+  end
+  
   def conditions
     [conditions_clauses.join(' AND '), *conditions_options]
   end

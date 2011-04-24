@@ -1,7 +1,7 @@
 class AddUserIdToPrincipals < ActiveRecord::Migration
   def self.up
     change_table :principals do |t|
-      t.references :user    
+      t.references :user
     end
   end
 

@@ -1,7 +1,7 @@
 class AddUserIdToAgent < ActiveRecord::Migration
   def self.up
     change_table :agents do |t|
-      t.references :user    
+      t.references :user
     end
   end
 

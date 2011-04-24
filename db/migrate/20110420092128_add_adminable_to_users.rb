@@ -1,6 +1,6 @@
 class AddAdminableToUsers < ActiveRecord::Migration
   def self.up
-    add_column :users, :adminable, :boolean
+    add_column :users, :adminable, :boolean, :default => false
   end
 
   def self.down

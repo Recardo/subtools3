@@ -1,9 +1,9 @@
 class CreateProfils < ActiveRecord::Migration
   def self.up
     create_table :profils do |t|
-      t.string :name
-      t.boolean :active
-      t.references :agent  
+      t.string :name, :null => false
+      t.boolean :active, :default => true
+      t.references :agent
       t.timestamps
     end
   end
