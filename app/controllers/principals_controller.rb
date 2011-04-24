@@ -1,5 +1,5 @@
 class PrincipalsController < ApplicationController
-  before_filter :authenticate_user!
+  before_filter :authenticate_user!, :except => :new
   before_filter :set_current_user
   
   # GET /principals
