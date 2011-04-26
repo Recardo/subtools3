@@ -1,6 +1,6 @@
 class Agent < ActiveRecord::Base
   belongs_to :user
-  has_one :profil
+  has_one :profil, :dependent => :destroy
   accepts_nested_attributes_for :user
   
   validates_presence_of :name

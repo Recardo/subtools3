@@ -1,6 +1,6 @@
 class Principal < ActiveRecord::Base
   belongs_to :user
-  has_many :searches
+  has_many :searches, :dependent => :destroy
   accepts_nested_attributes_for :user
   
   validates_associated :searches

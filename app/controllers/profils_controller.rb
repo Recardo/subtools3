@@ -3,7 +3,9 @@ class ProfilsController < ApplicationController
   # GET /profils
   # GET /profils.xml
   def index
-    @profils = Profil.all
+    #@profils = Profil.all
+    #@profils = Profil.find_all_by_agent_id(current_user.agent)
+    @profils = Profil.where(:agent_id => current_user.agent.id)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -42,7 +44,7 @@ class ProfilsController < ApplicationController
   # POST /profils.xml
   def create
     @profil = Profil.new(params[:profil])
-
+    @profil.agent = current_user.agent
     respond_to do |format|
       if @profil.save
         format.html { redirect_to(@profil, :notice => 'Profil was successfully created.') }

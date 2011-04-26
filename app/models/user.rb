@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
-  has_one :principal
-  has_one :agent
+  has_one :principal, :dependent => :destroy
+  has_one :agent, :dependent => :destroy
   
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable, :lockable and :timeoutable
@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
   
   
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :vatregno
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :vatregno, :adminable
   
   #validates_uniqueness_of :email  
   #validates_associated :principal

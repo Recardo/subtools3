@@ -1,9 +1,0 @@
-<% title "Search" %>
-
-<p>
-  <strong>Category:</strong>
-  <%= @search.category_id %>
-</p>
-
-<p>
-</p>
