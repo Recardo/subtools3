@@ -4,6 +4,6 @@ class AddAdminableToUsers < ActiveRecord::Migration
   end
 
   def self.down
-    remove_column :users, :adminable
+    remove_column :users, :admin
   end
 end

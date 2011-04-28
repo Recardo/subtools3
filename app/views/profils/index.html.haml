@@ -13,7 +13,7 @@
 
   - @profils.each do |profil|
     %tr
-      %td{:width => '50', :align => 'center'}= check_box :profil, :active, :checked => profil.active, :disabled => true
+      %td{:width => '50px', :align => 'center'}= check_box :profil, :active, :checked => profil.active, :disabled => true
       %td= profil.name
       %td= profil.category.name  
       %td{:width => '90px'}= button_to 'Anzeigen', profil, :class => 'button'

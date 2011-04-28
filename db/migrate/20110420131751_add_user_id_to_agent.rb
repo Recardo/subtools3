@@ -6,6 +6,6 @@ class AddUserIdToAgent < ActiveRecord::Migration
   end
 
   def self.down
-    remove_column :principals,:user_id
+    remove_column :agents,:user_id
   end
 end

@@ -1,10 +1,11 @@
 class Search < ActiveRecord::Base
-  #attr_accessible :category_id
+  attr_accessible :category_id
   belongs_to :principal
+  belongs_to :category
+  validates_presence_of :category_id
   
   def profils
     @profils ||= find_profils
-    #@profils = Profil.find(:all)
   end
   
   private

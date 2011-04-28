@@ -18,3 +18,26 @@
 .table_standard td {
 	border: 1px solid #ff5600;
 }
+/*Tabs*/
+.panes div {		
+}
+
+ul.tabs {
+    list-style: none;
+    margin: 0 !important;
+    padding: 0;
+    border-bottom: 1px solid #ff5600;
+    height: 30px;
+}
+
+ul.tabs li {
+    float: left;
+    text-indent: 5px;
+    padding: 0;
+    margin: 0 !important;
+    list-style-image: none !important;
+}
+
+ul.tabs a {
+	background: #ff56000;	
+	}

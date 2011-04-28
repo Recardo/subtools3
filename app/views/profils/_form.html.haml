@@ -1,4 +1,4 @@
-= simple_form_for @profil, :remote=>true do |f|
+= simple_form_for @profil do |f|
   -if @profil.errors.any?
     #error_explanation
       %h2= "#{pluralize(@profil.errors.count, "error")} prohibited this profil from being saved:"
@@ -13,7 +13,6 @@
     = f.label :active
     = f.check_box :active
   .field
-    = f.label :category
-    = f.association :category, :collection => Category.all(:order => 'name')
+    = f.association :category
   .actions
     = f.submit 'Speicher'

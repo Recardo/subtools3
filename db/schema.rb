@@ -10,13 +10,26 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110424122037) do
+ActiveRecord::Schema.define(:version => 20110427135411) do
+
+  create_table "addresses", :force => true do |t|
+    t.string   "name",        :limit => 32
+    t.string   "firstname",   :limit => 32
+    t.string   "companyname", :limit => 32
+    t.string   "street1",     :limit => 64
+    t.string   "street2",     :limit => 64
+    t.string   "postalcode",  :limit => 15
+    t.string   "city",        :limit => 32
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "agents", :force => true do |t|
     t.string   "name",       :limit => 32, :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
+    t.integer  "address_id"
   end
 
   create_table "categories", :force => true do |t|
@@ -30,6 +43,7 @@ ActiveRecord::Schema.define(:version => 20110424122037) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
+    t.integer  "address_id"
   end
 
   create_table "profils", :force => true do |t|
@@ -41,7 +55,20 @@ ActiveRecord::Schema.define(:version => 20110424122037) do
     t.integer  "category_id"
   end
 
-  add_index "profils", ["category_id"], :name => "index_profils_on_category_id", :unique => true
+  add_index "profils", ["category_id"], :name => "index_profils_on_category_id"
+
+  create_table "rails_admin_histories", :force => true do |t|
+    t.string   "message"
+    t.string   "username"
+    t.integer  "item"
+    t.string   "table"
+    t.integer  "month",      :limit => 2
+    t.integer  "year",       :limit => 5
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "rails_admin_histories", ["item", "table", "month", "year"], :name => "index_histories_on_item_and_table_and_month_and_year"
 
   create_table "searches", :force => true do |t|
     t.integer  "category_id"
@@ -65,7 +92,7 @@ ActiveRecord::Schema.define(:version => 20110424122037) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "adminable",                           :default => false
+    t.boolean  "admin",                               :default => false
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

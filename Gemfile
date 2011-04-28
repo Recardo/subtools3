@@ -17,6 +17,7 @@ gem 'simple_form'
 gem 'i18n'
 gem 'heroku'
 gem 'jquery-rails', '>= 0.2.6'
+gem 'rails_admin', :git => 'git://github.com/sferik/rails_admin.git'
 
 group :development do
 	gem 'hpricot'

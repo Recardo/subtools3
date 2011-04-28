@@ -1,3 +1,11 @@
+GIT
+  remote: git://github.com/sferik/rails_admin.git
+  revision: 73369c6af2a86c34a1b0e7fb4c6b3a2142f44260
+  specs:
+    rails_admin (0.0.1)
+      builder (~> 2.1.0)
+      rails (~> 3.0.6)
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -139,6 +147,7 @@ DEPENDENCIES
   rails (= 3.0.6)
   rails-erd
   rails3-generators
+  rails_admin!
   rspec
   rspec-rails
   ruby_parser

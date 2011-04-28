@@ -1,5 +1,5 @@
 class PrincipalsController < ApplicationController
-  #before_filter :authenticate_user!, :except => :new
+  #before_filter :authenticate_user!, :only => [:edit, :show, :index]
   before_filter :set_current_user
   
   # GET /principals
@@ -29,6 +29,7 @@ class PrincipalsController < ApplicationController
   def new
     @principal = Principal.new
     @principal.user = User.new
+    @principal.address = Address.new
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @principal }

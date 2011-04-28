@@ -6,23 +6,60 @@
         - @principal.errors.full_messages.each do |msg|
           %li= msg
 
-  .field
-    = f.label :name
-    = f.text_field :name
-    
-  = f.fields_for :user do |user_form|
-    .field
-      = user_form.label :email
-      = user_form.text_field :email
-    .field
-      = user_form.label :vatregno
-      = user_form.text_field :vatregno
-    .field  
-      = user_form.label :password
-      = user_form.password_field :password
-    .field  
-      = user_form.label :password_confirmation
-      = user_form.password_field :password_confirmation
+  %ul{:class => 'tabs'}
+    %li
+      %a{:href=>'#'} Allgemein
+    %li
+      %a{:href=>'#'} Adresse
+  
+  %div{:class => 'panes'}
+    %div
+      .field
+        = f.label :name
+        = f.text_field :name
+      = f.fields_for :user do |user_form|
+        .field
+          = user_form.label :email
+          = user_form.text_field :email
+        .field
+          = user_form.label :vatregno
+          = user_form.text_field :vatregno
+        .field  
+          = user_form.label :password
+          = user_form.password_field :password
+        .field  
+          = user_form.label :password_confirmation
+          = user_form.password_field :password_confirmation
+    %div
+      = f.fields_for :address do |address_form|
+        .field
+          = address_form.label :name, 'Name'
+          = address_form.text_field :name
+        .field
+          = address_form.label :firstname, 'Vorname'
+          = address_form.text_field :firstname
+        .field
+          = address_form.label :companyname, 'Firma'
+          = address_form.text_field :companyname
+        .field
+          = address_form.label :street1, 'Adresse'
+          = address_form.text_field :street1
+        .field
+          = address_form.label :street2, 'Adresse'
+          = address_form.text_field :street2
+        .field
+          = address_form.label :postalcode, 'PLZ'
+          = address_form.text_field :postalcode
+        .field
+          = address_form.label :city, 'Ort'
+          = address_form.text_field :city
     
   .actions
     = f.submit 'Speichern'
+ 
+%script{:type => "text/javascript", :charset => "utf-8"}
+  $(function() {
+  $("ul.tabs").tabs("div.panes > div");
+  });
+  
+ 

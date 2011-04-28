@@ -5,7 +5,12 @@ class AgentsController < ApplicationController
   # GET /agents
   # GET /agents.xml
   def index
-    @agents = Agent.all
+    if current_user.admin?
+      @agents = Agent.all
+    else
+      return show
+    end
+    
     
     respond_to do |format|
       format.html # index.html.erb
@@ -29,6 +34,7 @@ class AgentsController < ApplicationController
   def new
     @agent = Agent.new
     @agent.user = User.new
+    @agent.address = Address.new
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @agent }

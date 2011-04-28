@@ -1,4 +1,6 @@
 Subtools3::Application.routes.draw do  
+  resources :addresses
+
   resources :searches
 
   resources :categories

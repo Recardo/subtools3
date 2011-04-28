@@ -1,4 +1,4 @@
-		<% if user_signed_in? && current_user.adminable? %>
+		<% if current_user.try(:admin?) %>
             <div id="navigation">
                 <ul id="jsddm">
                     <li>
@@ -47,6 +47,9 @@
                     </li>
                     <li>
                         <a href="#">#Hilfe</a>
+                    </li>
+					<li>
+                        <a href="/admin">RA</a>
                     </li>
                 </ul>
             </div>
