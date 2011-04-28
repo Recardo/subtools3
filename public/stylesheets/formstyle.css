@@ -18,6 +18,17 @@
 .table_standard td {
 	border: 1px solid #ff5600;
 }
+
+label{ /* Alle Labels UND Formularelemente auswählen */
+  float: left;
+  width: 140px; /* Breite.*/
+}
+
+input, select {
+  	width: 200px; /* Breite.*/
+} 
+
+
 /*Tabs*/
 .panes div {		
 }

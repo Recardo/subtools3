@@ -4,11 +4,11 @@ body {
  font-family: Verdana, Arial, Helvetica, sans-serif;
  font-size: 13px;
 }
-
+/*
 p {
  padding: 10px;
 }
-
+*/
 a { color: #008080; }
 a:visited { color: #008080; }
 a:hover { color: #000000; background-color:#008080; }
