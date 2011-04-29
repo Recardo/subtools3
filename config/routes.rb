@@ -24,6 +24,7 @@ Subtools3::Application.routes.draw do
   match "/agents" => "agents#show"
   match "/agents/:id" => "agents#show"
   match "/agents/:id/edit" => "agents#edit"
+  match "/agents/:id/password" => "agents#password"
 
   match "/profils" => "profils#show"
   match "/profils/:id" => "profils#show"

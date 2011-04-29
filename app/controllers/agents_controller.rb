@@ -45,6 +45,11 @@ class AgentsController < ApplicationController
   def edit
     @agent = Agent.find(params[:id])
   end
+
+    # GET /agents/1/password
+  def password
+    @agent = Agent.find(params[:id])
+  end
   
   # POST /agents
   # POST /agents.xml

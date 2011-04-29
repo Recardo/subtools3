@@ -41,6 +41,11 @@ class PrincipalsController < ApplicationController
     @principal = Principal.find(params[:id])
   end
 
+    # GET /agents/1/password
+  def password
+    @principal = Principal.find(params[:id])
+  end
+
   # POST /principals
   # POST /principals.xml
   def create
