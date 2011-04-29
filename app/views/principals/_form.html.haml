@@ -24,7 +24,7 @@
         .field
           = user_form.label :vatregno
           = user_form.text_field :vatregno, :disabled => true
-      = link_to 'Email oder Passwort ändern', :controller => "agents", :action => "password"
+      
     %div
       = f.fields_for :address do |address_form|
         .field
