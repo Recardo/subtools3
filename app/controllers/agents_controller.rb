@@ -48,7 +48,11 @@ class AgentsController < ApplicationController
 
     # GET /agents/1/password
   def password
-    @agent = Agent.find(params[:id])
+    if params[:id] = -1
+      @agent = Agent.new
+    else
+      @agent = Agent.find(params[:id])
+    end    
   end
   
   # POST /agents

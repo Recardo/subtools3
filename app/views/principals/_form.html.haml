@@ -16,15 +16,23 @@
     %div
       .field
         = f.label :name
-        = f.text_field :name, :disabled => true
+        = f.text_field :name, :disabled => ('disabled' unless controller.action_name == 'new')
       = f.fields_for :user do |user_form|
         .field
           = user_form.label :email
-          = user_form.text_field :email, :disabled => true
+          = user_form.text_field :email, :disabled => ('disabled' unless controller.action_name == 'new')
         .field
           = user_form.label :vatregno
-          = user_form.text_field :vatregno, :disabled => true
-      
+          = user_form.text_field :vatregno, :disabled => ('disabled' unless controller.action_name == 'new') 
+        - if (controller.action_name != 'new')
+          = link_to 'Email oder Passwort ändern', :controller => "agents", :action => "password"
+        - else
+          .field  
+            = user_form.label :password
+            = user_form.password_field :password
+          .field  
+            = user_form.label :password_confirmation
+            = user_form.password_field :password_confirmation
     %div
       = f.fields_for :address do |address_form|
         .field

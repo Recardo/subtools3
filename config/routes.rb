@@ -1,4 +1,5 @@
 Subtools3::Application.routes.draw do  
+
   resources :addresses
 
   resources :searches
@@ -18,13 +19,18 @@ Subtools3::Application.routes.draw do
   get "pages/about"
   
   match "/principals" => "principals#show"
+  #match "/principals/:id/new" => "principals#new"
   match "/principals/:id" => "principals#show"
   match "/principals/:id/edit" => "principals#edit"
+  match "/principals/:id/password" => "principals#password"
+  match "/principals/password" => "principals#password"
 
   match "/agents" => "agents#show"
+  #match "/agents/:id/new" => "agents#new"
   match "/agents/:id" => "agents#show"
   match "/agents/:id/edit" => "agents#edit"
   match "/agents/:id/password" => "agents#password"
+  match "/agents/password" => "agents#password"
 
   match "/profils" => "profils#show"
   match "/profils/:id" => "profils#show"
