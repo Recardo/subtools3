@@ -8,7 +8,8 @@ class AgentsController < ApplicationController
     if current_user.admin?
       @agents = Agent.all
     else
-      return show
+      #return show
+      @agents = Agent.find(:all, :conditions => {:parent_id => current_user.agent.id})
     end
     
     

@@ -18,6 +18,7 @@ gem 'i18n'
 gem 'heroku'
 gem 'jquery-rails', '>= 0.2.6'
 gem 'rails_admin', :git => 'git://github.com/sferik/rails_admin.git'
+gem 'acts_as_tree'
 
 group :development do
 	gem 'hpricot'

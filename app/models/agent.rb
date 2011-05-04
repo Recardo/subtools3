@@ -1,4 +1,6 @@
 class Agent < ActiveRecord::Base
+  acts_as_tree
+  
   belongs_to :user
   belongs_to :address
   

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110429130328) do
+ActiveRecord::Schema.define(:version => 20110504133837) do
 
   create_table "addresses", :force => true do |t|
     t.string   "name",        :limit => 32
@@ -41,6 +41,7 @@ ActiveRecord::Schema.define(:version => 20110429130328) do
     t.string   "swift",             :limit => 16
     t.string   "iban",              :limit => 16
     t.datetime "birthday"
+    t.integer  "parent_id"
   end
 
   create_table "categories", :force => true do |t|
