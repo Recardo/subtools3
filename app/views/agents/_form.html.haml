@@ -1,4 +1,4 @@
-= simple_form_for @agent do |f|
+= form_for @agent do |f|
   -if @agent.errors.any?
     #error_explanation
       %h2= "#{pluralize(@agent.errors.count, "error")} prohibited this agent from being saved:"
@@ -17,6 +17,9 @@
       %a{:href=>'#'} Persönliche Angaben
     %li
       %a{:href=>'#'} Telefon
+    -if current_user.admin?
+      %li
+        %a{:href=>'#'} Admin
   
   %div{:class => 'panes'}
     %div
@@ -30,10 +33,6 @@
         .field
           = user_form.label :vatregno
           = user_form.text_field :vatregno, :disabled => ('disabled' unless controller.action_name == 'new')
-        - if current_user.admin?
-          .field
-            = f.label :parent_id
-            = f.collection_select( :parent_id, Agent.all, :id, :name)
         - if (controller.action_name != 'new')
           = link_to 'Email oder Passwort ändern', :controller => "agents", :action => "password"
         - else
@@ -102,11 +101,20 @@
       .field
         = f.label :mobile, 'Mobiltelefon'
         = f.text_field :mobile
+    -if current_user.admin?
+      %div
+        .field
+          = f.label :parent_id, 'Agentur'
+          = f.collection_select( :parent_id, Agent.all, :id, :name, {:include_blank => true} )
+        .field
+          = f.label :agency, 'Ist eigene Agentur'
+          = f.check_box :agency
         
-    
   .actions
     = f.submit 'Speichern'
- 
+    
+= render 'comments/comment_form'
+     
 %script{:type => "text/javascript", :charset => "utf-8"}
   $(function() {
   $("ul.tabs").tabs("div.panes > div");

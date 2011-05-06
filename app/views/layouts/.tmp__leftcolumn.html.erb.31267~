@@ -28,11 +28,6 @@
 					<li>
 						<%= link_to "Profile", profils_path %>
 					</li>
-					<%if current_user.agent.agency == true%>
-						<li>
-							<%= link_to "Auftragnehmer", agents_path %>
-						</li>
-					<%end%>
                     <li>
                         <%= link_to "#Nachrichten","#" %>
                     </li>

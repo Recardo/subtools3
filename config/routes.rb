@@ -1,4 +1,6 @@
 Subtools3::Application.routes.draw do  
+  
+  resources :comments
 
   resources :addresses
 
@@ -26,11 +28,14 @@ Subtools3::Application.routes.draw do
   match "/principals/password" => "principals#password"
 
   match "/agents" => "agents#show"
+  match "/agents/new" => "agents#new"
   #match "/agents/:id/new" => "agents#new"
   match "/agents/:id" => "agents#show"
   match "/agents/:id/edit" => "agents#edit"
   match "/agents/:id/password" => "agents#password"
   match "/agents/password" => "agents#password"
+  
+  match "/comments/add_comment" => "comments#add_comment"
 
   match "/profils" => "profils#show"
   match "/profils/:id" => "profils#show"

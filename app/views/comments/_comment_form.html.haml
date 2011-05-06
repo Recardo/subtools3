@@ -1,0 +1,24 @@
+= simple_form_for :comment, :remote => true, :url=>{:controller => 'comments' , :action => 'add_comment'} do |c|
+  = c.hidden_field :commentable_type, :value => @commentable_type
+  = c.hidden_field :commentable_id, :value => @commentable_id
+  .field
+    = c.label :short_text
+    = c.text_field :short_text
+  .field
+    = c.label :text  
+    = c.text_field :text
+  .actions
+    = c.submit 'Save'
+%table{:class => 'table_standard'}
+  %tr
+    %th Date
+    %th Short text
+    %th User
+    %th Status
+
+  - Comment.all.each do |comment|
+    %tr
+      %td= comment.created_at
+      %td= comment.short_text
+      %td= comment.user_id
+      %td= comment.status

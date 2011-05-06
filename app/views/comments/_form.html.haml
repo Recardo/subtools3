@@ -1,0 +1,31 @@
+= form_for @comment, :remote => true do |f|
+  -if @comment.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@comment.errors.count, "error")} prohibited this comment from being saved:"
+      %ul
+        - @comment.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :commentable_type
+    = f.text_field :commentable_type
+  .field
+    = f.label :commentable_id
+    = f.text_field :commentable_id
+  .field
+    = f.label :date
+    = f.text_field :created_at, :disabled => true
+  .field
+    = f.label :short_text
+    = f.text_field :short_text
+  .field
+    = f.label :text
+    = f.text_field :text
+  .field
+    = f.label :user_id
+    = f.text_field :user_id
+  .field
+    = f.label :status
+    = f.text_field :status
+  .actions
+    = f.submit 'Save'

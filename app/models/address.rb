@@ -1,6 +1,6 @@
 class Address < ActiveRecord::Base
-  belongs_to :agent
-  belongs_to :principal
+  has_many :agent
+  has_many :principal
   #accepts_nested_attributes_for :agent
   #accepts_nested_attributes_for :principal
   

@@ -45,6 +45,11 @@ class AgentsController < ApplicationController
   # GET /agents/1/edit
   def edit
     @agent = Agent.find(params[:id])
+    @comment = Comment.new
+    #@comment.commentable_type = 'Agent'
+    #@comment.commentable_id = @agent.id
+    @commentable_type = 'Agent'
+    @commentable_id = @agent.id
   end
 
     # GET /agents/1/password
@@ -60,7 +65,9 @@ class AgentsController < ApplicationController
   # POST /agents.xml
   def create
     @agent = Agent.new(params[:agent])
-    
+    if current_user.agent.agency?
+      @agent.parent_id = current_user.agent.id
+    end
     respond_to do |format|
       if @agent.save
         format.html { redirect_to(@agent, :notice => 'Ihr Auftragnehmerprofil wurde erfolgreich erstellt.') }
@@ -76,7 +83,7 @@ class AgentsController < ApplicationController
   # PUT /agents/1.xml
   def update
     @agent = Agent.find(params[:id])
-    
+
     respond_to do |format|
       if @agent.update_attributes(params[:agent])
         format.html { redirect_to(@agent, :notice => 'Agent was successfully updated.') }

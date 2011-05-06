@@ -1,0 +1,31 @@
+%h1 Listing comments
+
+%table
+  %tr
+    %th Commentable type
+    %th Commentable
+    %th Date
+    %th Short text
+    %th Text
+    %th User
+    %th Status
+    %th
+    %th
+    %th
+
+  - @comments.each do |comment|
+    %tr
+      %td= comment.commentable_type
+      %td= comment.commentable_id
+      %td= comment.date
+      %td= comment.short_text
+      %td= comment.text
+      %td= comment.user_id
+      %td= comment.status
+      %td= link_to 'Show', comment
+      %td= link_to 'Edit', edit_comment_path(comment)
+      %td= link_to 'Destroy', comment, :confirm => 'Are you sure?', :method => :delete
+
+%br
+
+= link_to 'New Comment', new_comment_path

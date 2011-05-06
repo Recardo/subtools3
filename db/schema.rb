@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110504133837) do
+ActiveRecord::Schema.define(:version => 20110505100224) do
 
   create_table "addresses", :force => true do |t|
     t.string   "name",        :limit => 32
@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(:version => 20110504133837) do
   end
 
   create_table "agents", :force => true do |t|
-    t.string   "name",              :limit => 32, :null => false
+    t.string   "name",              :limit => 32,                    :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
@@ -42,10 +42,22 @@ ActiveRecord::Schema.define(:version => 20110504133837) do
     t.string   "iban",              :limit => 16
     t.datetime "birthday"
     t.integer  "parent_id"
+    t.boolean  "agency",                          :default => false
   end
 
   create_table "categories", :force => true do |t|
     t.string   "name",       :limit => 32, :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "comments", :force => true do |t|
+    t.string   "commentable_type"
+    t.integer  "commentable_id"
+    t.string   "short_text"
+    t.string   "text"
+    t.integer  "user_id"
+    t.string   "status"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

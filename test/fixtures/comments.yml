@@ -1,0 +1,19 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  commentable_type: MyString
+  commentable_id: 1
+  date: 2011-05-05 12:02:24
+  short_text: MyString
+  text: MyString
+  user_id: 1
+  status: MyString
+
+two:
+  commentable_type: MyString
+  commentable_id: 1
+  date: 2011-05-05 12:02:24
+  short_text: MyString
+  text: MyString
+  user_id: 1
+  status: MyString

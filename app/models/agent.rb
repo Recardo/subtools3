@@ -1,5 +1,6 @@
 class Agent < ActiveRecord::Base
   acts_as_tree
+  acts_as_commentable
   
   belongs_to :user
   belongs_to :address
