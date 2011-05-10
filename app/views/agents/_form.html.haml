@@ -17,7 +17,7 @@
       %a{:href=>'#'} Persönliche Angaben
     %li
       %a{:href=>'#'} Telefon
-    -if current_user.admin?
+    - if current_user.try(:admin?)
       %li
         %a{:href=>'#'} Admin
   
@@ -101,7 +101,7 @@
       .field
         = f.label :mobile, 'Mobiltelefon'
         = f.text_field :mobile
-    -if current_user.admin?
+    - if current_user.try(:admin?)
       %div
         .field
           = f.label :parent_id, 'Agentur'
@@ -112,8 +112,9 @@
         
   .actions
     = f.submit 'Speichern'
-    
-= render 'comments/comment_form'
+
+- if user_signed_in? && current_user.try(:admin?)
+  = render 'comments/comment_form'
      
 %script{:type => "text/javascript", :charset => "utf-8"}
   $(function() {
