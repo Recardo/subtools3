@@ -13,11 +13,9 @@ class CommentsController < ApplicationController
       commentable.save
     end
     
-    #puts @comment
     commentable.comments << @comment
     
     redirect_to :action => 'edit', :id => @commentable_id, :controller => @commentable_type.pluralize.downcase
-    #redirect_to :action => "show", :id => params[:id], :controller
   end
   
   def find_commentable(commentable_str, commentable_id)
