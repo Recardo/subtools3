@@ -46,19 +46,20 @@ class AgentsController < ApplicationController
   def edit
     @agent = Agent.find(params[:id])
     @comment = Comment.new
-    #@comment.commentable_type = 'Agent'
-    #@comment.commentable_id = @agent.id
     @commentable_type = 'Agent'
     @commentable_id = @agent.id
   end
 
     # GET /agents/1/password
   def password
-    if params[:id] = -1
+    if params[:id] == -1
       @agent = Agent.new
     else
       @agent = Agent.find(params[:id])
     end    
+    puts 'test2'
+    puts @agent.user.email
+    puts params[:id]
   end
   
   # POST /agents
