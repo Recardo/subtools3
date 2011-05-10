@@ -8,21 +8,22 @@ class CommentsController < ApplicationController
     
     commentable = find_commentable(@commentable_type, @commentable_id)
     if commentable
-      comment = commentable.comments.build(params[:comment])
-      comment = current_user.id
-      comment.save
+      @comment = commentable.comments.build(params[:comment])
+      @comment.user = current_user
+      commentable.save
     end
     
-    commentable.comments << comment
+    #puts @comment
+    commentable.comments << @comment
     
-    #redirect_to :action => commentable_type.downcase,
-    #:id => commentable_id
+    redirect_to :action => 'edit', :id => @commentable_id, :controller => @commentable_type.pluralize.downcase
+    #redirect_to :action => "show", :id => params[:id], :controller
   end
-
+  
   def find_commentable(commentable_str, commentable_id)
     commentable_str.constantize.find(commentable_id.to_i)    
   end
-
+  
   # GET /comments
   # GET /comments.xml
   def index

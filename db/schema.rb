@@ -54,7 +54,6 @@ ActiveRecord::Schema.define(:version => 20110505100224) do
   create_table "comments", :force => true do |t|
     t.string   "commentable_type"
     t.integer  "commentable_id"
-    t.string   "short_text"
     t.string   "text"
     t.integer  "user_id"
     t.string   "status"
