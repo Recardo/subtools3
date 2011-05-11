@@ -36,6 +36,7 @@ GEM
       activemodel (= 3.0.6)
       activesupport (= 3.0.6)
     activesupport (3.0.6)
+    acts-as-taggable-on (2.0.6)
     acts_as_commentable (3.0.1)
     acts_as_tree (0.1.1)
     arel (2.0.9)
@@ -136,6 +137,7 @@ PLATFORMS
   x86-mingw32
 
 DEPENDENCIES
+  acts-as-taggable-on
   acts_as_commentable
   acts_as_tree
   bundler

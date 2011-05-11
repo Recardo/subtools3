@@ -9,6 +9,9 @@
   %br
   %b Kategorie:
   = @profil.category.name
+  %br
+  %b Tags:
+  = @profil.tag_list
 
 = button_to 'Bearbeiten', edit_profil_path(@profil), :class => 'button'
 = button_to 'Löschen', @profil, :method => :delete, :class => 'button'

@@ -6,24 +6,24 @@ class ProfilsController < ApplicationController
     #@profils = Profil.all
     #@profils = Profil.find_all_by_agent_id(current_user.agent)
     @profils = Profil.where(:agent_id => current_user.agent.id)
-
+    
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @profils }
     end
   end
-
+  
   # GET /profils/1
   # GET /profils/1.xml
   def show
     @profil = Profil.find(params[:id])
-
+    
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @profil }
     end
   end
-
+  
   # GET /profils/new
   # GET /profils/new.xml
   def new
@@ -34,12 +34,12 @@ class ProfilsController < ApplicationController
       format.xml  { render :xml => @profil }
     end
   end
-
+  
   # GET /profils/1/edit
   def edit
     @profil = Profil.find(params[:id])
   end
-
+  
   # POST /profils
   # POST /profils.xml
   def create
@@ -55,14 +55,16 @@ class ProfilsController < ApplicationController
       end
     end
   end
-
+  
   # PUT /profils/1
   # PUT /profils/1.xml
   def update
     @profil = Profil.find(params[:id])
-
+    #@profil.tag_list.add(params[:tag_list], :parse => true) 
     respond_to do |format|
       if @profil.update_attributes(params[:profil])
+        #@profil.tag_list.add(params[:tag_list], :parse => true)
+        @profil.save
         format.html { redirect_to(@profil, :notice => 'Profil was successfully updated.') }
         format.xml  { head :ok }
       else
@@ -71,13 +73,13 @@ class ProfilsController < ApplicationController
       end
     end
   end
-
+  
   # DELETE /profils/1
   # DELETE /profils/1.xml
   def destroy
     @profil = Profil.find(params[:id])
     @profil.destroy
-
+    
     respond_to do |format|
       format.html { redirect_to(profils_url) }
       format.xml  { head :ok }

@@ -20,6 +20,7 @@ gem 'jquery-rails', '>= 0.2.6'
 gem 'rails_admin', :git => 'git://github.com/sferik/rails_admin.git'
 gem 'acts_as_tree'
 gem 'acts_as_commentable'
+gem 'acts-as-taggable-on'
 
 group :development do
 	gem 'hpricot'

@@ -57,9 +57,6 @@ class AgentsController < ApplicationController
     else
       @agent = Agent.find(params[:id])
     end    
-    puts 'test2'
-    puts @agent.user.email
-    puts params[:id]
   end
   
   # POST /agents
