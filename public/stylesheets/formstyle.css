@@ -30,6 +30,11 @@ input, select {
 
 
 /*Tabs*/
+.ui-tabs-hide {  
+	display: none;  
+}  
+
+
 .panes div {		
 }
 

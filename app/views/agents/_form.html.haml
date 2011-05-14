@@ -5,24 +5,23 @@
       %ul
         - @agent.errors.full_messages.each do |msg|
           %li= msg
-
-  %ul{:class => 'tabs'}
-    %li
-      %a{:href=>'#'} Allgemein
-    %li
-      %a{:href=>'#'} Adresse
-    %li
-      %a{:href=>'#'} Bankverbindung
-    %li
-      %a{:href=>'#'} Persönliche Angaben
-    %li
-      %a{:href=>'#'} Telefon
-    - if current_user.try(:admin?)
+  %div{:id => "tabs"}
+    %ul{:class => 'tabs'}
       %li
-        %a{:href=>'#'} Admin
-  
-  %div{:class => 'panes'}
-    %div
+        %a{:href=>'#allgemein'} Allgemein
+      %li
+        %a{:href=>'#adresse'} Adresse
+      %li
+        %a{:href=>'#bank'} Bankverbindung
+      %li
+        %a{:href=>'#persoenlich'} Persönliche Angaben
+      %li
+        %a{:href=>'#telefon'} Telefon
+      - if current_user.try(:admin?)
+        %li
+          %a{:href=>'#admin'} Admin
+    
+    %div{:id => "allgemein"}
       .field
         = f.label :name
         = f.text_field :name, :disabled => ('disabled' unless controller.action_name == 'new')
@@ -42,7 +41,7 @@
           .field  
             = user_form.label :password_confirmation
             = user_form.password_field :password_confirmation
-    %div
+    %div{:id => "adresse"}
       = f.fields_for :address do |address_form|
         .field
           = address_form.label :name, 'Name'
@@ -65,7 +64,7 @@
         .field
           = address_form.label :city, 'Ort'
           = address_form.text_field :city
-    %div
+    %div{:id => "bank"}
       .field
         = f.label :bankaccountholder, 'Kontoinhaber'
         = f.text_field :bankaccountholder
@@ -81,7 +80,7 @@
       .field
         = f.label :swift, 'SWIFT'
         = f.text_field :swift
-    %div
+    %div{:id => "persoenlich"}
       .field
         = f.label :identitycard, 'Ausweisnummer'
         = f.text_field :identitycard
@@ -91,7 +90,7 @@
       .field
         = f.label :birthday, 'Geburtstag'
         = f.text_field :birthday
-    %div
+    %div{:id => "telefon"}
       .field
         = f.label :phone, 'Telefon'
         = f.text_field :phone
@@ -102,7 +101,7 @@
         = f.label :mobile, 'Mobiltelefon'
         = f.text_field :mobile
     - if current_user.try(:admin?)
-      %div
+      %div{:id => "admin"}
         .field
           = f.label :parent_id, 'Agentur'
           = f.collection_select( :parent_id, Agent.all, :id, :name, {:include_blank => true} )
@@ -111,14 +110,14 @@
           = f.check_box :agency
         
   .actions
-    = f.submit 'Speichern'
+    = f.submit 'Speichern', :class => "ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only ui-state-hover"
 
 - if user_signed_in? && current_user.try(:admin?)
   = render 'comments/comment_form'
      
 %script{:type => "text/javascript", :charset => "utf-8"}
   $(function() {
-  $("ul.tabs").tabs("div.panes > div");
+  $("#tabs").tabs({ fx: [{opacity:'toggle', duration:'normal'},{opacity:'toggle', duration:'normal'}] });
   });
-  
+
  

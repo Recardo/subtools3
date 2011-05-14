@@ -20,26 +20,26 @@
             </div>
             <%end %>
 			<%if user_signed_in? && !current_user.agent.blank? %>
-            <div id="leftcolumn" class="ui-widget-content ui-menu">
+            <div id="leftcolumn">
                 <ul>
-                    <li class="ui-menu-item">
-                        <%= link_to "Benutzerdaten", :controller => "agents", :action => "edit", :id => current_user.agent.id %>
+                    <li>
+                        <%= link_to "Daten", :controller => "agents", :action => "show", :id => current_user.agent.id %>|<%= link_to "bearbeiten", :controller => "agents", :action => "edit", :id => current_user.agent.id %>
                     </li>
-					<li class="ui-menu-item">
-						<%= link_to "Profile", profils_path%>
+					<li>
+						<%= link_to "Profile", profils_path %>
 					</li>
 					<%if current_user.agent.agency == true%>
-						<li class="ui-menu-item">
+						<li>
 							<%= link_to "Auftragnehmer", agents_path %>
 						</li>
 					<%end%>
-                    <li class="ui-menu-item">
+                    <li>
                         <%= link_to "#Nachrichten","#" %>
                     </li>
-                    <li class="ui-menu-item">
+                    <li>
                         <%= link_to "#Aufträge","#" %>
                     </li>
-                    <li class="ui-menu-item">
+                    <li>
                         <%= link_to "#Kalender","#" %>
                     </li>
                 </ul>

@@ -2,25 +2,17 @@
 <html>
     <head>
         <title>Subtools3</title>
-        <%#= stylesheet_link_tag :all %>
-		<%= stylesheet_link_tag "adminmenu.css" %>
-		<%= stylesheet_link_tag "jquery-ui-1.8.12.custom.css" %>
-		<%= stylesheet_link_tag "style3.css" %>
+        <%= stylesheet_link_tag :all %>
         <%#= javascript_include_tag :all %>
-        <%= javascript_include_tag "application.js", "rails.js" %>
-		<%#= javascript_include_tag "jquery.tools.min.js"%>
-        
-		<%= javascript_include_tag "jquery-1.5.1.min.js" %>
-		<%= javascript_include_tag "jquery-ui-1.8.12.custom.min.js" %>
-		<%= javascript_include_tag "adminmenu.js" %>
+        <%= javascript_include_tag "application.js", "jquery.min.js", "rails.js", "jquery.tools.min.js" %>
+        <%= javascript_include_tag "adminmenu.js" %>
         <%= csrf_meta_tag %>
     </head>
     <body>
-        <div id="wrapper" class="ui-widget">
-            <div id="header" class="ui-corner-top  ui-state-default">
-                <h2>
-                	<%= link_to 'Subtools', root_path, :class => 'logo' %>
-				</h2>
+        <div id="wrapper">
+            <div id="header" class="roundtop">
+                
+                <%= link_to 'Subtools', root_path, :class => 'logo' %>
                 <div id="user_nav">
                     <% if user_signed_in? %>
                     Angemeldet als <%= current_user.email %>. <%= link_to "Abmelden", destroy_user_session_path %>
@@ -32,7 +24,7 @@
             </div>
             <%= render :partial => "layouts/adminmenu" %>
             <%= render :partial => "layouts/leftcolumn" %>
-            <div id="content" class="ui-widget-content">
+            <div id="content">
                 <p class="notice">
                     <%= notice %>
                 </p>
@@ -41,7 +33,7 @@
                 </p>
                 <%= yield %>
             </div>
-            <div id="footer" class="ui-corner-bottom  ui-state-default">
+            <div id="footer" class="roundbottom">
                 <center>
                     Impressum | Kontakt | AGBs
                 </center>
