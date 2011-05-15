@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.0.6'
+gem 'rails', '3.0.7'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -21,6 +21,7 @@ gem 'rails_admin', :git => 'git://github.com/sferik/rails_admin.git'
 gem 'acts_as_tree'
 gem 'acts_as_commentable'
 gem 'acts-as-taggable-on'
+#gem 'ruby-debug-ide'
 
 group :development do
 	gem 'hpricot'

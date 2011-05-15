@@ -63,7 +63,7 @@ class AgentsController < ApplicationController
   # POST /agents.xml
   def create
     @agent = Agent.new(params[:agent])
-    if current_user.agent.agency?
+    if user_signed_in? && current_user.agent.agency?
       @agent.parent_id = current_user.agent.id
     end
     respond_to do |format|
