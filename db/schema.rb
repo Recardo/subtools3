@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110511091505) do
+ActiveRecord::Schema.define(:version => 20110513023947) do
 
   create_table "addresses", :force => true do |t|
     t.string   "name",        :limit => 32
@@ -57,6 +57,16 @@ ActiveRecord::Schema.define(:version => 20110511091505) do
     t.string   "text"
     t.integer  "user_id"
     t.string   "status"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "events", :force => true do |t|
+    t.string   "title"
+    t.datetime "starts_at"
+    t.datetime "ends_at"
+    t.boolean  "all_day"
+    t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

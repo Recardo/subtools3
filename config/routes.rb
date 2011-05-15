@@ -17,6 +17,9 @@ Subtools3::Application.routes.draw do
   resources :users, :has_one => :principal
   resources :users, :has_one => :agent
 
+  resources :events
+  get "calendar/index"
+
   get "pages/home"
   get "pages/about"
   

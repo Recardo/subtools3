@@ -89,7 +89,7 @@
         = f.select :gender, ['männlich','weiblich']
       .field
         = f.label :birthday, 'Geburtstag'
-        = f.text_field :birthday
+        = f.datetime_select :birthday
     %div{:id => "telefon"}
       .field
         = f.label :phone, 'Telefon'
