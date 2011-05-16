@@ -2,6 +2,8 @@ class Event < ActiveRecord::Base
     
   scope :before, lambda {|end_time| {:conditions => ["ends_at < ?", Event.format_date(end_time)] }}
   scope :after, lambda {|start_time| {:conditions => ["starts_at > ?", Event.format_date(start_time)] }}
+  scope :event_owner_id, lambda {|event_owner_id| {:conditions => ["event_owner_id = ?", event_owner_id]}}
+  scope :event_owner_type, lambda {|event_owner_id| {:conditions => ["event_owner_type = ?", event_owner_type]}}
   
   # need to override the json view to return what full_calendar is expecting.
   # http://arshaw.com/fullcalendar/docs/event_data/Event_Object/
@@ -14,7 +16,9 @@ class Event < ActiveRecord::Base
       :end => ends_at.rfc822,
       :allDay => self.all_day,
       :recurring => false,
-      :url => Rails.application.routes.url_helpers.event_path(id)
+      :url => Rails.application.routes.url_helpers.event_path(id),
+      :event_owner_id => self.event_owner_id,
+      :event_owner_type => self.event_owner_type
     }
     
   end

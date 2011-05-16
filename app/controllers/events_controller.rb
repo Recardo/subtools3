@@ -10,6 +10,8 @@ class EventsController < ApplicationController
     @events = Event.scoped  
     @events = @events.after(params['start']) if (params['start'])
     @events = @events.before(params['end']) if (params['end'])
+    @events = @events.event_owner_id(params['event_owner_id']) if (params['event_owner_id'])
+    @events = @events.event_owner_type(params['event_owner_type']) if (params['event_owner_type'])
     
     respond_to do |format|
       format.html # index.html.erb
@@ -50,7 +52,8 @@ class EventsController < ApplicationController
   # POST /events.xml
   def create
     @event = Event.new(params[:event])
-
+    @event.event_owner_id = current_user.agent.id
+    @event.event_owner_type = current_user.agent.class.to_s  
     respond_to do |format|
       if @event.save
         format.html { redirect_to(@event, :notice => 'Event was successfully created.') }

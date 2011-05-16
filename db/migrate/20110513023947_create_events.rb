@@ -6,6 +6,7 @@ class CreateEvents < ActiveRecord::Migration
       t.datetime :ends_at
       t.boolean :all_day
       t.text :description
+      t.references :event_owner, :polymorphic => { :default => 'Agent' }
 
       t.timestamps
     end
