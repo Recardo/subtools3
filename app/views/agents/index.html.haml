@@ -1,19 +1,23 @@
 %h1 Listing agents
 
-%table{:class => 'table_standard'}
-  %tr
-    %th Name
-    %th
-    %th
-    %th
-
-  - @agents.each do |agent|
+%table{:class => "ui-widget"}
+  %thead
     %tr
-      %td= agent.name
-      %td{:width => '90px'}= button_to 'Show', agent, :class => 'button'
-      %td{:width => '90px'}= button_to 'Edit', edit_agent_path(agent), :class => 'button'
-      %td{:width => '90px'}= button_to 'Destroy', agent, :confirm => 'Are you sure?', :method => :delete, :class => 'button'
+      %th Name
+      %th
+      %th
+      %th
+  
+    - @agents.each do |agent|
+      %tr{:class => "ui-widget-header"}
+        %td= agent.name
+        %td{:width => '90px'}= link_to 'Show', agent, :class => 'ui-button-text'
+        %td{:width => '90px'}= button_to 'Edit', edit_agent_path(agent), :class => 'ui-button'
+        %td{:width => '90px'}= button_to 'Destroy', agent, :confirm => 'Are you sure?', :method => :delete, :class => 'ui-button'
 
 %br
 
 = button_to 'New Agent', new_agent_path
+
+%script
+  $("thead").addClass("ui-widget-header")

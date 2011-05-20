@@ -1,50 +1,50 @@
 <%if user_signed_in? && !current_user.principal.blank? %>
-            <div id="leftcolumn">
-                <ul>
-                    <li>
-                        <%= link_to "Daten", :controller => "principals", :action => "show", :id => current_user.principal.id %>|<%= link_to "bearbeiten", :controller => "principals", :action => "edit", :id => current_user.principal.id %>
-                    </li>
-					<li>
-                        <%= link_to "Suche",new_search_path %>
-                    </li>
-                    <li>
-                        <%= link_to "#Nachrichten","#" %>
-                    </li>
-                    <li>
-                        <%= link_to "#Aufträge","#" %>
-                    </li>
-                    <li>
-                        <%= link_to "#Kalender","#" %>
-                    </li>
-                </ul>
-            </div>
-            <%end %>
-			<%if user_signed_in? && !current_user.agent.blank? %>
-            <div id="leftcolumn" class="ui-widget-content ui-menu">
-                <ul>
-                    <li class="ui-menu-item">
-                        <%= link_to "Benutzerdaten", :controller => "agents", :action => "edit", :id => current_user.agent.id %>
-                    </li>
-					<li class="ui-menu-item">
-						<%= link_to "Profile", profils_path%>
-					</li>
-					<%if current_user.agent.agency == true%>
-						<li class="ui-menu-item">
-							<%= link_to "Auftragnehmer", agents_path %>
-						</li>
-					<%end%>
-					<li class="ui-menu-item">
-                        <%= link_to "Kalender", "/calendar/index" %>
-                    </li>
-                    <li class="ui-menu-item">
-                        <%= link_to "#Nachrichten","#" %>
-                    </li>
-                    <li class="ui-menu-item">
-                        <%= link_to "#Aufträge","#" %>
-                    </li>
-                    <li class="ui-menu-item">
-                        <%= link_to "#Kalender","#" %>
-                    </li>
-                </ul>
-            </div>
-            <%end %>
+	<div id="leftcolumn" class="ui-widget-content ui-menu">
+	    <ul>
+	        <li class="ui-menu-item">
+	            <%= link_to "Benutzerdaten", :controller => "principals", :action => "edit", :id => current_user.principal.id %>
+	        </li>
+			<li class="ui-menu-item">
+	            <%= link_to "Suche",new_search_path %>
+	        </li>
+	        <li class="ui-menu-item">
+	            <%= link_to "#Nachrichten","#" %>
+	        </li>
+	        <li class="ui-menu-item">
+	            <%= link_to "#Aufträge","#" %>
+	        </li>
+	        <li class="ui-menu-item">
+	            <%= link_to "#Kalender","#" %>
+	        </li>
+	    </ul>
+	</div>
+<%end %>
+<%if user_signed_in? && !current_user.agent.blank? %>
+    <div id="leftcolumn" class="ui-widget-content ui-menu">
+        <ul>
+            <li class="ui-menu-item">
+                <%= link_to "Benutzerdaten", :controller => "agents", :action => "edit", :id => current_user.agent.id %>
+            </li>
+			<li class="ui-menu-item">
+				<%= link_to "Profile", profils_path%>
+			</li>
+			<%if current_user.agent.agency == true%>
+				<li class="ui-menu-item">
+					<%= link_to "Auftragnehmer", agents_path %>
+				</li>
+			<%end%>
+			<li class="ui-menu-item">
+                <%= link_to "Kalender", "/calendar/index" %>
+            </li>
+            <li class="ui-menu-item">
+                <%= link_to "#Nachrichten","#" %>
+            </li>
+            <li class="ui-menu-item">
+                <%= link_to "#Aufträge","#" %>
+            </li>
+            <li class="ui-menu-item">
+                <%= link_to "#Kalender","#" %>
+            </li>
+        </ul>
+    </div>
+    <%end %>

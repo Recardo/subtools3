@@ -65,7 +65,7 @@ ActiveRecord::Schema.define(:version => 20110513023947) do
     t.string   "title"
     t.datetime "starts_at"
     t.datetime "ends_at"
-    t.boolean  "all_day"
+    t.boolean  "all_day",          :default => true
     t.text     "description"
     t.integer  "event_owner_id"
     t.string   "event_owner_type", :default => "Agent"

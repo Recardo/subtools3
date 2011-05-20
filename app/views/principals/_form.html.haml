@@ -5,15 +5,14 @@
       %ul
         - @principal.errors.full_messages.each do |msg|
           %li= msg
-
-  %ul{:class => 'tabs'}
-    %li
-      %a{:href=>'#'} Allgemein
-    %li
-      %a{:href=>'#'} Adresse
+  %div{:id => "tabs"}
+    %ul{:class => 'tabs'}
+      %li
+        %a{:href=>'#allgemein'} Allgemein
+      %li
+        %a{:href=>'#adresse'} Adresse
   
-  %div{:class => 'panes'}
-    %div
+    %div{:id => "allgemein"}
       .field
         = f.label :name
         = f.text_field :name, :disabled => ('disabled' unless controller.action_name == 'new')
@@ -33,7 +32,8 @@
           .field  
             = user_form.label :password_confirmation
             = user_form.password_field :password_confirmation
-    %div
+            
+    %div{:id => "adresse"}
       = f.fields_for :address do |address_form|
         .field
           = address_form.label :name, 'Name'
@@ -56,13 +56,15 @@
         .field
           = address_form.label :city, 'Ort'
           = address_form.text_field :city
-    
+      
   .actions
-    = f.submit 'Speichern'
+    = f.submit 'Speichern', :class => "ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only ui-state-hover"
  
+- if user_signed_in? && current_user.try(:admin?)
+  = render 'comments/comment_form'
+     
 %script{:type => "text/javascript", :charset => "utf-8"}
   $(function() {
-  $("ul.tabs").tabs("div.panes > div");
+  $("#tabs").tabs({ fx: [{opacity:'toggle', duration:'normal'},{opacity:'toggle', duration:'normal'}] });
   });
-  
  
