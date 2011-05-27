@@ -15,6 +15,10 @@ class Search < ActiveRecord::Base
   end
   
   def category_conditions
+    ["profils.wage <= ?", wage] unless wage.blank?
+  end
+  
+  def wage_conditions
     ["profils.category_id = ?", category_id] unless category_id.blank?
   end
   

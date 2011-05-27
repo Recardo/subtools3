@@ -15,7 +15,7 @@
     %th Benutzer
     %th Status
 
-  - Comment.find(:all, :order => 'created_at DESC').each do |comment|
+  - Comment.find(:all, :conditions => ["commentable_type=? and commentable_id=?", @commentable_type, @commentable_id], :order => 'created_at DESC').each do |comment|
     %tr
       %td{:width => '130px'}= comment.created_at.strftime('%d.%m.%Y %H:%M')
       %td= comment.text

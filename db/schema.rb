@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110513023947) do
+ActiveRecord::Schema.define(:version => 20110525080700) do
 
   create_table "addresses", :force => true do |t|
     t.string   "name",        :limit => 32
@@ -82,12 +82,13 @@ ActiveRecord::Schema.define(:version => 20110513023947) do
   end
 
   create_table "profils", :force => true do |t|
-    t.string   "name",        :limit => 32,                   :null => false
-    t.boolean  "active",                    :default => true
+    t.string   "name",        :limit => 32,                                                  :null => false
+    t.boolean  "active",                                                   :default => true
     t.integer  "agent_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "category_id"
+    t.decimal  "wage",                      :precision => 10, :scale => 2
   end
 
   add_index "profils", ["category_id"], :name => "index_profils_on_category_id"
@@ -110,6 +111,7 @@ ActiveRecord::Schema.define(:version => 20110513023947) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "principal_id"
+    t.decimal  "wage",         :precision => 10, :scale => 2
   end
 
   create_table "taggings", :force => true do |t|

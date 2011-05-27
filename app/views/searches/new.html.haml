@@ -8,5 +8,8 @@
   .field
     = f.label :category_id
     = f.collection_select :category_id, Category.all(:order => 'name'), :id, :name, :include_blank => true
+  .field
+    = f.label :wage
+    = f.text_field :wage
   .actions
     = f.submit 'Suchen'

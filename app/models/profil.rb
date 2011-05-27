@@ -4,7 +4,7 @@ class Profil < ActiveRecord::Base
   belongs_to :agent  
   belongs_to :category
   
-  attr_accessible :name, :active, :category_id, :tag_list
+  attr_accessible :name, :active, :category_id, :tag_list, :wage
   
   validates_presence_of :category_id
 end

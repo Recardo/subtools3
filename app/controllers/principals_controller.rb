@@ -39,6 +39,9 @@ class PrincipalsController < ApplicationController
   # GET /principals/1/edit
   def edit
     @principal = Principal.find(params[:id])
+    @comment = Comment.new
+    @commentable_type = 'Principal'
+    @commentable_id = @principal.id
   end
 
     # GET /agents/1/password
