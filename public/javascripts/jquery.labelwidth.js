@@ -1,4 +1,3 @@
-
 /**
  * labelWidth is a plugin for jQuery that normalizes the width of the labels in a form.
  * Copyright (C) 2010 Elena Ramirez <ahdiaz@gmail.com> http://www.e-lena.es
