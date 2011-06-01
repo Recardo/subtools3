@@ -22,92 +22,98 @@
           %a{:href=>'#admin'} Admin
     
     %div{:id => "allgemein"}
-      .field
-        = f.label :name
-        = f.text_field :name, :disabled => ('disabled' unless controller.action_name == 'new')
-      = f.fields_for :user do |user_form|
+      %fieldset
         .field
-          = user_form.label :email
-          = user_form.text_field :email, :disabled => ('disabled' unless controller.action_name == 'new')
-        .field
-          = user_form.label :vatregno
-          = user_form.text_field :vatregno, :disabled => ('disabled' unless controller.action_name == 'new')
-        - if (controller.action_name != 'new')
-          = link_to 'Email oder Passwort ändern', :controller => "agents", :action => "password", :id => @agent.id 
-        - else
+          = f.label :name
+          = f.text_field :name, :disabled => ('disabled' unless controller.action_name == 'new')
+        = f.fields_for :user do |user_form|
           .field
-            = user_form.label :password
-            = user_form.password_field :password
-          .field  
-            = user_form.label :password_confirmation
-            = user_form.password_field :password_confirmation
+            = user_form.label :email
+            = user_form.text_field :email, :disabled => ('disabled' unless controller.action_name == 'new')
+          .field
+            = user_form.label :vatregno
+            = user_form.text_field :vatregno, :disabled => ('disabled' unless controller.action_name == 'new')
+          - if (controller.action_name != 'new')
+            = link_to 'Email oder Passwort ändern', :controller => "agents", :action => "password", :id => @agent.id 
+          - else
+            .field
+              = user_form.label :password
+              = user_form.password_field :password
+            .field  
+              = user_form.label :password_confirmation
+              = user_form.password_field :password_confirmation
     %div{:id => "adresse"}
-      = f.fields_for :address do |address_form|
-        .field
-          = address_form.label :name, 'Name'
-          = address_form.text_field :name
-        .field
-          = address_form.label :firstname, 'Vorname'
-          = address_form.text_field :firstname
-        .field
-          = address_form.label :companyname, 'Firma'
-          = address_form.text_field :companyname
-        .field
-          = address_form.label :street1, 'Adresse'
-          = address_form.text_field :street1
-        .field
-          = address_form.label :street2, 'Adresse'
-          = address_form.text_field :street2
-        .field
-          = address_form.label :postalcode, 'PLZ'
-          = address_form.text_field :postalcode
-        .field
-          = address_form.label :city, 'Ort'
-          = address_form.text_field :city
+      %fieldset
+        = f.fields_for :address do |address_form|
+          .field
+            = address_form.label :name, 'Name'
+            = address_form.text_field :name
+          .field
+            = address_form.label :firstname, 'Vorname'
+            = address_form.text_field :firstname
+          .field
+            = address_form.label :companyname, 'Firma'
+            = address_form.text_field :companyname
+          .field
+            = address_form.label :street1, 'Adresse'
+            = address_form.text_field :street1
+          .field
+            = address_form.label :street2, 'Adresse'
+            = address_form.text_field :street2
+          .field
+            = address_form.label :postalcode, 'PLZ'
+            = address_form.text_field :postalcode
+          .field
+            = address_form.label :city, 'Ort'
+            = address_form.text_field :city
     %div{:id => "bank"}
-      .field
-        = f.label :bankaccountholder, 'Kontoinhaber'
-        = f.text_field :bankaccountholder
-      .field
-        = f.label :bankaccount, 'Kontonummer'
-        = f.text_field :bankaccount
-      .field
-        = f.label :bankcode, 'Bankleitzahl'
-        = f.text_field :bankcode
-      .field
-        = f.label :iban, 'IBAN'
-        = f.text_field :iban
-      .field
-        = f.label :swift, 'SWIFT'
-        = f.text_field :swift
+      %fieldset
+        .field
+          = f.label :bankaccountholder, 'Kontoinhaber'
+          = f.text_field :bankaccountholder
+        .field
+          = f.label :bankaccount, 'Kontonummer'
+          = f.text_field :bankaccount
+        .field
+          = f.label :bankcode, 'Bankleitzahl'
+          = f.text_field :bankcode
+        .field
+          = f.label :iban, 'IBAN'
+          = f.text_field :iban
+        .field
+          = f.label :swift, 'SWIFT'
+          = f.text_field :swift
     %div{:id => "persoenlich"}
-      .field
-        = f.label :identitycard, 'Ausweisnummer'
-        = f.text_field :identitycard
-      .field
-        = f.label :gender, 'Geschlecht'
-        = f.select :gender, ['männlich','weiblich']
-      .field
-        = f.label :birthday, 'Geburtstag'
-        = f.datetime_select :birthday
+      %fieldset
+        .field
+          = f.label :identitycard, 'Ausweisnummer'
+          = f.text_field :identitycard
+        .field
+          = f.label :gender, 'Geschlecht'
+          = f.select :gender, ['männlich','weiblich']
+        .field
+          = f.label :birthday, 'Geburtstag'
+          = f.datetime_select :birthday
     %div{:id => "telefon"}
-      .field
-        = f.label :phone, 'Telefon'
-        = f.text_field :phone
-      .field
-        = f.label :fax, 'FAX'
-        = f.text_field :fax
-      .field
-        = f.label :mobile, 'Mobiltelefon'
+      %fieldset
+        .field
+          = f.label :phone, 'Telefon'
+          = f.text_field :phone
+        .field
+          = f.label :fax, 'FAX'
+          = f.text_field :fax
+        .field
+          = f.label :mobile, 'Mobiltelefon'
         = f.text_field :mobile
     - if current_user.try(:admin?)
       %div{:id => "admin"}
-        .field
-          = f.label :parent_id, 'Agentur'
-          = f.collection_select( :parent_id, Agent.all, :id, :name, {:include_blank => true} )
-        .field
-          = f.label :agency, 'Ist eigene Agentur'
-          = f.check_box :agency
+        %fieldset
+          .field
+            = f.label :parent_id, 'Agentur'
+            = f.collection_select( :parent_id, Agent.all, :id, :name, {:include_blank => true} )
+          .field
+            = f.label :agency, 'Ist eigene Agentur'
+            = f.check_box :agency
         
   .actions
     = f.submit 'Speichern', :class => "ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only ui-state-hover"
@@ -118,6 +124,7 @@
 %script{:type => "text/javascript", :charset => "utf-8"}
   $(function() {
   $("#tabs").tabs({ fx: [{opacity:'toggle', duration:'normal'},{opacity:'toggle', duration:'normal'}] });
+  $('form').labelWidth();
   });
 
  

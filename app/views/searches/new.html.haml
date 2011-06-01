@@ -1,4 +1,4 @@
-= simple_form_for @search do |f|
+= form_for @search do |f|
   -if @search.errors.any?
     #error_explanation
       %h2= "#{pluralize(@search.errors.count, "error")} prohibited this profil from being saved:"
@@ -10,6 +10,6 @@
     = f.collection_select :category_id, Category.all(:order => 'name'), :id, :name, :include_blank => true
   .field
     = f.label :wage
-    = f.text_field :wage
+    = f.text_field :wage, :value => number_with_precision(f.object.wage)
   .actions
     = f.submit 'Suchen'

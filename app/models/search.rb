@@ -3,6 +3,7 @@ class Search < ActiveRecord::Base
   belongs_to :principal
   belongs_to :category
   validates_presence_of :category_id
+  attr_accessible :category_id, :wage
   
   def profils
     @profils ||= find_profils
@@ -14,11 +15,11 @@ class Search < ActiveRecord::Base
     Profil.find(:all, :conditions => conditions)
   end
   
-  def category_conditions
+  def wage_conditions
     ["profils.wage <= ?", wage] unless wage.blank?
   end
   
-  def wage_conditions
+  def category_conditions
     ["profils.category_id = ?", category_id] unless category_id.blank?
   end
   
