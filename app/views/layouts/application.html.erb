@@ -31,11 +31,11 @@
     </head>
     <body>
         <div id="wrapper" class="ui-widget">
-            <div id="header" class="ui-corner-top  ui-state-default">
-                <h2>
-                	<%= link_to 'Subtools', root_path, :class => 'logo' %>
-				</h2>
-                <div id="user_nav">
+            <div id="header" class="ui-corner-top">
+            	<div style="float: left; width: 175px;">
+                		<%= link_to image_tag("peboaLG_white.gif", :width => '175px'), root_path, :class => 'logo' %>
+                </div>
+                <div id="user_nav" style="float: right; width: 805px; text-align: right;">
                     <% if user_signed_in? %>
                     Angemeldet als <%= current_user.email %>. <%= link_to "Abmelden", destroy_user_session_path %>
                     <% else %>
@@ -43,6 +43,7 @@
                     <%= link_to "Anmelden", new_user_session_path %>
                     <% end %>
                 </div>
+                
             </div>
             <%= render :partial => "layouts/adminmenu" %>
             <%= render :partial => "layouts/leftcolumn" %>

@@ -14,7 +14,13 @@ a:hover { color: #000000; background-color:#008080; }
 #wrapper { 
  margin: 0 auto;
  width: 980px;
+ border: 24px solid #0073CF;
+ background-color: #0073CF;
+ -moz-border-radius: 24px; 
+ -webkit-border-radius: 24px; 
+ border-radius: 24px;
 }
+
 
 #content { 
  float: left;
@@ -30,11 +36,12 @@ a:hover { color: #000000; background-color:#008080; }
 }
 
 #header {
- /*color: white;*/
+ color: white;
  width: 980px;
  float: left;
  height: 75px;
- /*background: #008080;*/
+ background: #0073cf;
+ border: 0px;
 }
 /*
 #header a { color: white; }
@@ -46,8 +53,9 @@ a:hover { color: #000000; background-color:#008080; }
  width: 980px;
  height: 25px;
  clear: both;
- /*color: white;*/
- /*background: #008080;*/
+ color: white;
+ background: #0073cf;
+ border: 0px;
 }
 
 #navigation {
