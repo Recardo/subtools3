@@ -1,5 +1,9 @@
 Subtools3::Application.routes.draw do  
   
+
+  resources :requests
+  resources :requests_positions
+
   resources :comments
 
   resources :addresses
@@ -22,6 +26,9 @@ Subtools3::Application.routes.draw do
 
   get "pages/home"
   get "pages/about"
+  
+  match "/requests/create" => "requests#create"
+  match "/requests" => "requests#show"
   
   match "/principals" => "principals#show"
   #match "/principals/:id/new" => "principals#new"

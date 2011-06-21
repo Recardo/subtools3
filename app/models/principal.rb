@@ -8,6 +8,7 @@ class Principal < ActiveRecord::Base
   accepts_nested_attributes_for :address
   
   has_many :searches, :dependent => :destroy
+  has_many :requests, :dependent => :destroy
   
   validates_associated :searches
   validates_presence_of :name

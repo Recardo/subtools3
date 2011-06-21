@@ -1,0 +1,28 @@
+= simple_form_for @request do |f|
+  -if @request.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@profil.errors.count, "error")} prohibited this profil from being saved:"
+      %ul
+        - @profil.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :date
+    = f.text_field :date
+  .field
+    = f.label :type
+    = f.text_field :type
+    
+%table{:class => 'table_standard'}
+  %tr
+    %th Name
+    %th Kategorie
+    %th Preis
+    %th Status
+
+  - @request.request_positions.each do |pos|
+    %tr
+      %td=pos.profil.agent.name
+      %td=pos.profil.category.name
+      %td=pos.wage
+      %td=pos.status

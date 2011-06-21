@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110525080700) do
+ActiveRecord::Schema.define(:version => 20110620104748) do
 
   create_table "addresses", :force => true do |t|
     t.string   "name",        :limit => 32
@@ -105,6 +105,24 @@ ActiveRecord::Schema.define(:version => 20110525080700) do
   end
 
   add_index "rails_admin_histories", ["item", "table", "month", "year"], :name => "index_histories_on_item_and_table_and_month_and_year"
+
+  create_table "request_positions", :force => true do |t|
+    t.integer  "request_id"
+    t.integer  "profil_id"
+    t.decimal  "wage",        :precision => 10, :scale => 2
+    t.string   "status"
+    t.string   "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "requests", :force => true do |t|
+    t.integer  "principal_id"
+    t.datetime "date",         :default => '2011-06-20 13:29:24'
+    t.string   "type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "searches", :force => true do |t|
     t.integer  "category_id"
