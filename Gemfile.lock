@@ -103,6 +103,7 @@ GEM
       ruby-graphviz (~> 0.9.18)
     rails3-generators (0.17.4)
       railties (>= 3.0.0)
+    rails_jq_grid (0.0.3)
     railties (3.0.9)
       actionpack (= 3.0.9)
       activesupport (= 3.0.9)
@@ -162,6 +163,7 @@ DEPENDENCIES
   rails-erd
   rails3-generators
   rails_admin!
+  rails_jq_grid
   rspec
   rspec-rails
   ruby_parser

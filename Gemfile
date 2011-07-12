@@ -22,6 +22,8 @@ gem 'acts_as_tree'
 gem 'acts_as_commentable'
 gem 'acts-as-taggable-on'
 #gem 'ruby-debug-ide'
+gem 'rails_jq_grid'
+
 
 group :development do
 	gem 'hpricot'

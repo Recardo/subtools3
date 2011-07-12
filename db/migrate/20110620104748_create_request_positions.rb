@@ -4,7 +4,7 @@ class CreateRequestPositions < ActiveRecord::Migration
       t.references :request
       t.references :profil
       t.decimal :wage, :precision => 10, :scale => 2
-      t.string :status
+      t.integer :status, :default => 10 
       t.string :description
       t.timestamps
     end

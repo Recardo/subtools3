@@ -110,7 +110,7 @@ ActiveRecord::Schema.define(:version => 20110620104748) do
     t.integer  "request_id"
     t.integer  "profil_id"
     t.decimal  "wage",        :precision => 10, :scale => 2
-    t.string   "status"
+    t.integer  "status",                                     :default => 10
     t.string   "description"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -118,8 +118,9 @@ ActiveRecord::Schema.define(:version => 20110620104748) do
 
   create_table "requests", :force => true do |t|
     t.integer  "principal_id"
-    t.datetime "date",         :default => '2011-06-20 13:29:24'
+    t.datetime "date",         :default => '2011-07-11 09:32:45'
     t.string   "type"
+    t.integer  "status",       :default => 10
     t.datetime "created_at"
     t.datetime "updated_at"
   end

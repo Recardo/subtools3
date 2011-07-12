@@ -4,6 +4,7 @@ class CreateRequests < ActiveRecord::Migration
       t.references :principal
       t.datetime :date, :default => Time.now
       t.string :type
+      t.integer :status, :default => 10
       t.timestamps
     end
   end
