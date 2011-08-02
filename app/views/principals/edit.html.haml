@@ -1,2 +1,7 @@
-%h3 Auftragnehmer bearbeiten
-= render 'form'
+=# render 'form'
+= netzke :User, 
+  :class_name => "Basepack::FormPanel", 
+  :model => "User",
+  #:columns => [:name, :email, :vatno],
+  :record_id => @principal.user.id,
+  :title => "Auftragnehmer bearbeiten"

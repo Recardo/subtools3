@@ -8,6 +8,23 @@ GIT
       haml (>= 3.0.0, < 3.2.0)
       rails (~> 3.0.7)
 
+GIT
+  remote: git://github.com/skozlov/netzke-basepack.git
+  revision: ea9fbc8ce6467e3f23e5d6db2ff3d8dfbcbd891f
+  specs:
+    netzke-basepack (0.6.5)
+      acts_as_list
+      meta_where (>= 0.9.3)
+      netzke-core (~> 0.6.7)
+      will_paginate (~> 3.0.pre2)
+
+GIT
+  remote: git://github.com/skozlov/netzke-core.git
+  revision: 54c3e3b29e51a00f48a9a23b9014c93c302c5b7c
+  specs:
+    netzke-core (0.6.7)
+      activesupport (>= 3.0.1)
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -40,6 +57,7 @@ GEM
     activesupport (3.0.9)
     acts-as-taggable-on (2.0.6)
     acts_as_commentable (3.0.1)
+    acts_as_list (0.1.3)
     acts_as_tree (0.1.1)
     arel (2.0.10)
     bcrypt-ruby (2.1.4-x86-mingw32)
@@ -80,6 +98,10 @@ GEM
       i18n (>= 0.4.0)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
+    meta_where (1.0.4)
+      activerecord (~> 3.0.0)
+      activesupport (~> 3.0.0)
+      arel (~> 2.0.7)
     mime-types (1.16)
     nifty-generators (0.4.6)
     orm_adapter (0.0.5)
@@ -103,7 +125,6 @@ GEM
       ruby-graphviz (~> 0.9.18)
     rails3-generators (0.17.4)
       railties (>= 3.0.0)
-    rails_jq_grid (0.0.3)
     railties (3.0.9)
       actionpack (= 3.0.9)
       activesupport (= 3.0.9)
@@ -141,6 +162,7 @@ GEM
     tzinfo (0.3.28)
     warden (1.0.4)
       rack (>= 1.0)
+    will_paginate (3.0.pre2)
 
 PLATFORMS
   x86-mingw32
@@ -158,15 +180,17 @@ DEPENDENCIES
   hpricot
   i18n
   jquery-rails (>= 0.2.6)
+  netzke-basepack!
+  netzke-core!
   nifty-generators
   rails (= 3.0.9)
   rails-erd
   rails3-generators
   rails_admin!
-  rails_jq_grid
   rspec
   rspec-rails
   ruby_parser
   shoulda
   simple_form
   sqlite3
+  will_paginate (~> 3.0.pre2)

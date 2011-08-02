@@ -16,7 +16,16 @@
 		<%= javascript_include_tag "adminmenu.js" %>
 		<%= javascript_include_tag "jquery.labelwidth.js" %>
 		
-
+		<%= netzke_init :ext_theme => "xtheme-yourtheme" %>
+		<link href="/extjs/resources/css/xtheme-yourtheme.css" media="screen" rel="stylesheet" type="text/css" />
+<!--
+		<link rel="stylesheet" type="text/css" id="theme" href=""/> 		
+		<script type="text/javascript">
+			function(n) {
+                var themeUrl = "xtheme-yourtheme.css"";
+                Ext.util.CSS.swapStyleSheet("xtheme-yourtheme", themeUrl);
+			};
+		</script>-->
 
   <%= stylesheet_link_tag "fullcalendar.css" %>
   <%#= stylesheet_link_tag "application.css" %>

@@ -1,6 +1,11 @@
 # Sample localization file for English. Add more files in this directory for other locales.
 # See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 de:
+  netzke:
+    basepack:
+      form_panel:
+        actions:
+          apply: "Speichern"            
   date:
     formats:
       default: "%d.%m.%Y"

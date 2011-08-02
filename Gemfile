@@ -22,7 +22,10 @@ gem 'acts_as_tree'
 gem 'acts_as_commentable'
 gem 'acts-as-taggable-on'
 #gem 'ruby-debug-ide'
-gem 'rails_jq_grid'
+#gem 'rails_jq_grid'
+gem 'netzke-core', :git => "git://github.com/skozlov/netzke-core.git"
+gem 'netzke-basepack', :git => "git://github.com/skozlov/netzke-basepack.git"
+gem "will_paginate", "~>3.0.pre2"
 
 
 group :development do

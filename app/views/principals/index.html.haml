@@ -1,19 +1,8 @@
 %h1 Auftraggeber
 
-%table
-  %tr
-    %th Name
-    %th
-    %th
-    %th
-
-  - @principals.each do |principal|
-    %tr
-      %td= principal.name
-      %td= link_to 'Anzeigen', principal
-      %td= link_to 'Bearbeiten', edit_principal_path(principal)
-      %td= link_to 'Löschen', principal, :confirm => 'Wirklich löschen?', :method => :delete
-
-%br
+= netzke :Principal, 
+  :class_name => "Basepack::GridPanel", 
+  :model => "Principal",
+  :columns => [:name, :email]
 
 = link_to 'Neuer Auftraggeber', new_principal_path
